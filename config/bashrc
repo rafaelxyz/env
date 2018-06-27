@@ -1,0 +1,77 @@
+##Black-Regular #Red #Green #Yellow #Blue #Purple #Cyan
+txtblk='\e[0;30m'; txtred='\e[0;31m'; txtgrn='\e[0;32m'; txtylw='\e[0;33m'; txtblu='\e[0;34m'; txtpur='\e[0;35m'; txtcyn='\e[0;36m';
+##Blue #Purple #Cyan #White #Text Reset
+bakblu='\e[44m'; bakpur='\e[45m'; bakcyn='\e[46m'; bakwht='\e[47m'; txtrst='\e[0m';
+
+test $0 == /usr/sbin/Check && exit 0
+echo -e "$txtylw- running bashrc, calling program is: $0$txtrst\n"
+
+parse_git_branch() {
+    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+}
+PS1="\\""[$(tput setaf 7)\\]\[$txtgrn\]$USER@`hostname`:\\w \$(parse_git_branch)$ \\[$(tput sgr0)\\]\[$txtrst\]"
+
+based=`readlink -f $HOME/env`
+confd=$based/config
+home="/home/erafodz"
+
+#init_user_environment
+test -f $home/tmux_completion.sh && . $home/tmux_completion.sh
+test -f $home/git-completion.bash && . $home/git-completion.bash
+export EDITOR="vim"
+export SHELL=/bin/bash
+export TERM=screen-256color
+alias vi="vim"
+alias ll="ls -lah --color=auto"
+alias ls="ls --color=auto"
+alias info=viminfo
+alias grep="grep --color=auto"
+alias xterm="uxterm -bg black -fg white"
+alias mail="mail -r rafael.odzakow@ericsson.com"
+alias a5="setxkbmap -option ctrl:nocaps;xmodmap $based/dvorak/xmodmap -v"
+alias dk="setxkbmap se -option;"
+bind '"\C-o":"ranger-cd\C-m"'
+# for ranger:
+export PYTHONOPTIMIZE=2
+export HISTSIZE=""
+export HISTFILESIZE=""
+HGEDITOR=vim
+EDITOR=vim
+
+### Functions ###
+
+man() { /usr/bin/man $* | col -b | vim -c 'set ft=man nomod nolist' -; }
+parse_git_branch() {
+    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+}
+
+ranger-cd() {
+    local ranger="$based/ranger/ranger.py"
+    if [ ! -f $ranger ]; then
+        local ranger="ranger"
+    fi
+    if [[ $(ps -f |grep '${ranger} --choosedir=/tmp/chosen' |wc -l) == 2 ]]; then
+        exit
+    else
+        $ranger --choosedir=/tmp/chosen
+        if [ -f /tmp/chosen -a "$(cat /tmp/chosen)" != "$(pwd | tr -d "\n")" ]; then
+            cd "$(cat /tmp/chosen)"
+        fi
+        rm -f /tmp/chosen
+    fi
+}
+
+o-ed-bashrc() { vim -c "e $confd/bashrc"; }
+o-vecka-nu() { echo "1 + `date '+%U'`" | bc; }
+
+o-cpp_checks() {
+    cppcheck --enable=all --inconclusive --std=posix . 2> cppcheck.txt
+    cpplint * 2> cpplint.txt
+}
+
+o-color-print() {
+    # for use in tmux
+    for i in {0..255} ; do
+        printf "\x1b[38;5;${i}mcolour${i}\n"
+    done
+}

@@ -1,0 +1,54 @@
+startup_message off
+deflogin on
+#escape ^Bb
+
+#hardstatus alwayslastline "%{= w}%-w%{= Bk} %n %t %{-}%+w %-="
+#hardstatus alwayslastline
+#hardstatus string "%-w%{= BW}%50>%n %t%{-}%+w%<"
+
+#caption always
+#caption alwayslastline
+#caption string "%{= w}%-w%{= Bk} %n %t %{-}%+w %-="
+#nonblock on
+#altscreen on
+#attrcolor b ".I"
+
+# Apparently F1/2 means F11/12
+bindkey -k F1 focus prev
+bindkey -k F2 focus next
+
+## control + left; previous screen window
+#bindkey ^[[1;5D prev
+## control + right; next screen window
+#bindkey ^[[1;5C next
+## control + up; previous split screen
+#bindkey ^[[1;5A focus prev
+## control + down; next split screen
+#bindkey ^[[1;5B focus next
+## F1 kill tab
+#bindkey -k k1 kill
+## F2 write paste buffer to file
+#bindkey -k k2 writebuf
+## F3 Split horizontally
+#bindkey -k k3 split
+## F4 Split vertically
+#bindkey -k k4 split -v
+## F5 Remove single split
+#bindkey -k k5 remove
+## F6 Remove all splits
+#bindkey -k k6 only
+## F7 Urlview
+#bindkey -k k7 eval "hardcopy_append off" "hardcopy -h $HOME/.screen-urlview" "screen urlview $HOME/.screen-urlview"
+## F8 New tab
+#bindkey -k k8 screen
+## F9 resize -1 line
+#bindkey -k k9 resize -1
+## F10 resize +1 line
+#bindkey -k k; resize +1
+
+backtick 1 5 5 true
+termcapinfo xterm* 'hs:ts=\E]2;:fs=\007:ds=\E]2;\007'
+hardstatus string "screen (%n: %t)"
+caption string "%{= kw}%Y-%m-%d;%c %{= kw}%-Lw%{= kG}%{+b}[%n %t]%{-b}%{= kw}%+Lw%1`"
+caption always
+term "screen-256color"

@@ -1,0 +1,11 @@
+#!/bin/bash
+
+#new suse
+#FILE="/usr/share/X11/xkb/symbols/se"
+#old suse
+#FILE="/etc/X11/xkb/symbols/se"
+#ubuntu
+FILE="/usr/share/X11/xkb/symbols/se"
+
+echo "appending a5m symbols to" $FILE
+cat symbols >> $FILE

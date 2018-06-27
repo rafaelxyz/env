@@ -1,0 +1,60 @@
+!place this in $HOME/.Xmodmap
+keycode 108 = Mode_switch
+
+keycode 9 = Escape
+keycode 10 = 1 exclam
+keycode 11 = 2 quotedbl
+keycode 12 = 3 numbersign
+keycode 13 = 4 currency dollar
+keycode 14 = 5 percent
+keycode 15 = 6 ampersand
+keycode 16 = 7 slash
+keycode 17 = 8 parenleft
+keycode 18 = 9 parenright
+keycode 19 = 0 equal
+keycode 20 = plus question backslash
+keycode 21 = dead_acute dead_grave
+keycode 22 = BackSpace
+
+!keycode 23 = Tab
+keycode 24 = aring Aring braceleft
+keycode 25 = adiaeresis Adiaeresis braceright
+keycode 26 = odiaeresis Odiaeresis bracketleft
+keycode 27 = p P bracketright
+keycode 28 = y Y dollar
+keycode 29 = f F numbersign
+keycode 30 = g G question
+keycode 31 = c C ampersand
+keycode 32 = r R less
+keycode 33 = l L greater
+keycode 34 = comma
+keycode 35 = grave acute
+!keycode 36 = Return
+
+keycode 38 = a A semicolon
+keycode 39 = o O slash
+keycode 40 = e E parenleft
+keycode 41 = u U parenright
+keycode 42 = i I bar
+keycode 43 = d D underscore
+keycode 44 = h H asciicircum
+keycode 45 = t T apostrophe
+keycode 46 = n N quotedbl
+keycode 47 = s S asciitilde
+keycode 48 = minus plus
+keycode 49 = section degree
+
+keycode 51 = numbersign
+keycode 52 = period colon colon
+keycode 53 = q Q equal
+keycode 54 = j J at
+keycode 55 = k K exclam
+keycode 56 = x X backslash
+keycode 57 = b B percent
+keycode 58 = m M asterisk
+keycode 59 = w W mu
+keycode 60 = v V
+keycode 61 = z Z
+keycode 94 = currency
+!keycode 65 = space Escape
+keycode 65 = space

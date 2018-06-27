@@ -1,0 +1,6 @@
+
+nmap å <PAGE_UP>
+nmap ä <PAGE_DOWN>
+imap ö <ESC>
+nmap ö :w<ENTER>
+nmap § :bd<ENTER>

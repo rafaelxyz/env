@@ -1,0 +1,14 @@
+"3.7 (created: 2013/04/03 18:20:07)
+
+cmap <C-p> <Up>
+cmap <C-n> <Down>
+cmap <C-Space> <Esc>
+highlight Hint font-family: monospace; font-size: 12px; font-weight: bold; text-transform: lowercase; color: white; background-color: black; border-color: ButtonShadow; border-width: 0px; border-style: solid; padding: 0px 1px 0px 1px; 
+imap <C-Space> <Esc>
+nmap <S-Space> :
+nmap å <C-u>
+nmap ä <C-d>
+nmap § d
+set hintchars=aoeuidhtnsqjkxbmwvzpyfgcrl
+
+" vim: set ft=vimperator:
