@@ -45,30 +45,24 @@ let mapleader="\<tab>"
         nmap <leader>t :TagbarToggle<cr>
 
         Plug 'neomake/neomake' " Run Neomake to syntax check
-        autocmd! BufWritePost,BufEnter * Neomake
-
         Plug 'sbdchd/neoformat'
-        augroup astyle
-          autocmd!
-          autocmd BufWritePre * Neoformat
-        augroup END
 
-        "Plug 'ludovicchabant/vim-gutentags'
-        "let g:gutentags_project_root = ['.git']
-
-        " Java
-        Plug 'artur-shaik/vim-javacomplete2'
-        autocmd FileType java setlocal omnifunc=javacomplete#Complete
-
-        " deoplete
         Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
         Plug 'zchee/deoplete-jedi' " python completion
-        let g:deoplete#enable_at_startup = 1
-        let g:deoplete#omni_patterns = {}
-        let g:deoplete#omni_patterns.java = '[^. *\t]\.\w*'
-        let g:deoplete#sources = {}
-        let g:deoplete#sources._ = []
-        let g:deoplete#file#enable_buffer_path = 1
+        "let g:deoplete#enable_at_startup = 1
+        "let g:deoplete#omni_patterns = {}
+        "let g:deoplete#omni_patterns.java = '[^. *\t]\.\w*'
+        "let g:deoplete#sources = {}
+        "let g:deoplete#sources._ = []
+        "let g:deoplete#file#enable_buffer_path = 1
+
+
+        Plug 'ludovicchabant/vim-gutentags'
+        let g:gutentags_project_root = ['.git']
+
+        " Java
+        "Plug 'artur-shaik/vim-javacomplete2'
+        "autocmd FileType java setlocal omnifunc=javacomplete#Complete
 
         Plug 'davidhalter/jedi-vim' " goto definition etc.
         let g:jedi#completions_enabled = 0
