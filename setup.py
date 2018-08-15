@@ -57,6 +57,7 @@ def setup_environment():
     symlink(confd + '/tmux_conf', home + '/.tmux_conf')
     symlink(confd + '/Xresources', home + '/.Xresources')
     symlink(confd + '/ycm_extra_conf.py', home + '/.ycm_extra_conf.py')
+    symlink(confd + '/rc.conf', home + '/.config/ranger/rc.conf')
 
     # vim-plug
     url = 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'

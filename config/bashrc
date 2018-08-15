@@ -30,6 +30,7 @@ alias xterm="uxterm -bg black -fg white"
 alias mail="mail -r rafael.odzakow@ericsson.com"
 alias a5="setxkbmap -option ctrl:nocaps;xmodmap $based/dvorak/xmodmap -v"
 alias dk="setxkbmap se -option;"
+alias rm="trash-put"
 bind '"\C-o":"ranger-cd\C-m"'
 # for ranger:
 export PYTHONOPTIMIZE=2
@@ -57,14 +58,14 @@ ranger-cd() {
         if [ -f /tmp/chosen -a "$(cat /tmp/chosen)" != "$(pwd | tr -d "\n")" ]; then
             cd "$(cat /tmp/chosen)"
         fi
-        rm -f /tmp/chosen
+        /bin/rm -f /tmp/chosen
     fi
 }
 
-o-ed-bashrc() { vim -c "e $confd/bashrc"; }
+o-bashrc() { vim -c "e $confd/bashrc"; }
 o-vecka-nu() { echo "1 + `date '+%U'`" | bc; }
 
-o-cpp_checks() {
+o-cpp-checks() {
     cppcheck --enable=all --inconclusive --std=posix . 2> cppcheck.txt
     cpplint * 2> cpplint.txt
 }
