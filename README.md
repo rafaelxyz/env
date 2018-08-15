@@ -1,7 +1,7 @@
 Settings and apps for linux
 
 ubuntu:
-    sudo apt-get install git ranger tmux trash-cli
+    sudo apt-get install git ranger tmux trash-cli exuberant-ctags
 
     neovim:
         sudo apt-get install software-properties-common
