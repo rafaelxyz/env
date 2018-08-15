@@ -141,4 +141,3 @@ let mapleader="\<tab>"
     hi easymotiontarget ctermbg=none ctermfg=green
     hi easymotionshade  ctermbg=none ctermfg=blue
 " }}}
-"endif
