@@ -28,7 +28,7 @@ def symlink(source, link):
     """ unix symlink """
     print COLOR.blue + 'creating symlink ', link, 'source:', source, COLOR.end
     if not os.path.isdir(os.path.dirname(link)):
-        os.mkdir(os.path.dirname(link))
+        os.makedirs(os.path.dirname(link))
     return call(['ln', '-s', source, link])
 
 
