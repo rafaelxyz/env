@@ -12,6 +12,7 @@ let mapleader="\<tab>"
         Plug 'tpope/vim-fugitive' " git
         Plug 'octol/vim-cpp-enhanced-highlight' " ?
         Plug 'machakann/vim-highlightedyank' " ?
+        Plug 'ryanoasis/vim-devicons'
 
         Plug 'mhinz/vim-signify', " show modified lines, for git etc
         let g:signify_vcs_list = [ 'git' ]
@@ -20,8 +21,28 @@ let mapleader="\<tab>"
         nmap <leader>z :FZF<cr>
 
         Plug 'itchyny/lightline.vim' " nice status line
-        let g:lightline = { 'colorscheme': 'jellybeans', 'component': { 'readonly': '%{&readonly?"⭤":""}',  } }
-        let g:lightline.active = { 'left': [ [ 'mode', 'paste' ], [ 'readonly', 'absolutepath', 'modified' ] ] }
+        let g:lightline = {
+            \ 'colorscheme': 'jellybeans',
+            \ 'component': {
+            \   'lineinfo': ' %3l:%-2v',
+            \ },
+            \ 'component_function': {
+            \   'readonly': 'LightlineReadonly',
+            \   'fugitive': 'LightlineFugitive'
+            \ },
+            \ 'separator': { 'left': '', 'right': '' },
+            \ 'subseparator': { 'left': '', 'right': '' }
+            \ }
+        function! LightlineReadonly()
+            return &readonly ? '' : ''
+        endfunction
+        function! LightlineFugitive()
+            if exists('*fugitive#head')
+                let branch = fugitive#head()
+                return branch !=# '' ? ''.branch : ''
+            endif
+            return ''
+        endfunction
         set laststatus=2 " show lightline
         set noshowmode " hide -- INSERT --
 
