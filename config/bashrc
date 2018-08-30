@@ -36,8 +36,6 @@ bind '"\C-o":"ranger-cd\C-m"'
 export PYTHONOPTIMIZE=2
 export HISTSIZE=""
 export HISTFILESIZE=""
-HGEDITOR=vim
-EDITOR=vim
 
 ### Functions ###
 

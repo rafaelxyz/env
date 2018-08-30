@@ -8,3 +8,6 @@ ubuntu:
         sudo apt-get update && sudo apt-get install neovim python-dev python-pip python3-dev python3-pip -y
         sudo update-alternatives --install /usr/bin/vi vi /usr/bin/nvim 60
         sudo update-alternatives --install /usr/bin/vim vim /usr/bin/nvim 60
+
+    new ranger:
+        git clone https://github.com/ranger/ranger.git && cd ranger/ && sudo make install
