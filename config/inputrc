@@ -2,6 +2,8 @@ set input-meta on
 set output-meta on
 set convert-meta off
 set editing-mode vi
+# show what vi mode is active
+set show-mode-in-prompt on
 set visible-stats on
 #"\C-@":vi-movement-mode
 "jj":vi-movement-mode
