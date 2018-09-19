@@ -67,6 +67,8 @@ def setup_environment():
               % (home, url))
 
     os.system('git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm')
+    os.system('git clone https://github.com/ranger/ranger.git')
+    os.system('git clone https://github.com/alexanderjeurissen/ranger_devicons.git')
     os.system('xrdb ~/.Xresources')
 
 setup_environment()
