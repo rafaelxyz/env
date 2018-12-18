@@ -3,6 +3,7 @@
 """ environment setup """
 
 import os
+import sys
 from subprocess import call
 from os.path import join
 from os.path import expanduser
@@ -30,6 +31,19 @@ def symlink(source, link):
     if not os.path.isdir(os.path.dirname(link)):
         os.makedirs(os.path.dirname(link))
     return call(['ln', '-s', source, link])
+
+def sed_configs():
+    if len(sys.argv) > 1:
+        ps1color = sys.argv[1]
+        if ps1color != 'blu' or ps1color != 'red':
+            return
+    else:
+        return
+
+    confd = os.getcwd() + '/config'
+    print 'PS1 color:', ps1color
+    os.system("sed -i 's/$txtgrn/$txt{0}/' {1}".format(ps1color, confd + '/bashrc'))
+    os.system("sed -i 's/default_linemode devicons//' {0}".format(confd + '/rc.conf'))
 
 
 def setup_environment():
@@ -70,5 +84,8 @@ def setup_environment():
     os.system('git clone https://github.com/ranger/ranger.git')
     os.system('git clone https://github.com/alexanderjeurissen/ranger_devicons.git')
     os.system('xrdb ~/.Xresources')
+
+    sed_configs()
+
 
 setup_environment()
