@@ -35,13 +35,14 @@ def symlink(source, link):
 def sed_configs():
     if len(sys.argv) > 1:
         ps1color = sys.argv[1]
-        if ps1color != 'blu' or ps1color != 'red':
+        print 'PS1 color:', ps1color
+        if ps1color != 'blu' and ps1color != 'red':
             return
     else:
         return
 
+    print 'sed configs'
     confd = os.getcwd() + '/config'
-    print 'PS1 color:', ps1color
     os.system("sed -i 's/$txtgrn/$txt{0}/' {1}".format(ps1color, confd + '/bashrc'))
     os.system("sed -i 's/default_linemode devicons//' {0}".format(confd + '/rc.conf'))
 
@@ -53,6 +54,8 @@ def setup_environment():
     confd = os.getcwd() + '/config'
 
     print 'home', home, 'confd', confd
+
+    sed_configs()
 
     # symlink this to home if not already there
     if not os.path.isdir(envd):
@@ -73,6 +76,7 @@ def setup_environment():
     symlink(confd + '/ycm_extra_conf.py', home + '/.ycm_extra_conf.py')
     symlink(confd + '/rc.conf', home + '/.config/ranger/rc.conf')
 
+
     # vim-plug
     url = 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
     os.system('curl -fLo %s/.vim/autoload/plug.vim --create-dirs %s'
@@ -84,8 +88,6 @@ def setup_environment():
     os.system('git clone https://github.com/ranger/ranger.git')
     os.system('git clone https://github.com/alexanderjeurissen/ranger_devicons.git')
     os.system('xrdb ~/.Xresources')
-
-    sed_configs()
 
 
 setup_environment()
