@@ -32,8 +32,6 @@ alias a5="setxkbmap -option ctrl:nocaps;xmodmap $based/dvorak/xmodmap -v"
 alias dk="setxkbmap se -option;"
 alias rm="trash-put"
 bind '"\C-o":"ranger-cd\C-m"'
-# for ranger:
-export PYTHONOPTIMIZE=2
 export HISTSIZE=""
 export HISTFILESIZE=""
 

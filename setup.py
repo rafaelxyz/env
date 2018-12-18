@@ -71,4 +71,5 @@ def setup_environment():
     os.system('git clone https://github.com/alexanderjeurissen/ranger_devicons.git')
     os.system('xrdb ~/.Xresources')
 
+
 setup_environment()
