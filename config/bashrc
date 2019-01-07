@@ -9,7 +9,7 @@ echo -e "$txtylw- running bashrc, calling program is: $0$txtrst\n"
 parse_git_branch() {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
-PS1="\\""[$(tput setaf 7)\\]\[$txtgrn\]$USER@`hostname`:\\w \$(parse_git_branch)$ \\[$(tput sgr0)\\]\[$txtrst\]"
+PS1="\\""[$(tput setaf 7)\\]\[$txtblu\]$USER@`hostname`:\\w \$(parse_git_branch)$ \\[$(tput sgr0)\\]\[$txtrst\]"
 
 based=`readlink -f $HOME/env`
 confd=$based/config
@@ -32,8 +32,6 @@ alias a5="setxkbmap -option ctrl:nocaps;xmodmap $based/dvorak/xmodmap -v"
 alias dk="setxkbmap se -option;"
 alias rm="trash-put"
 bind '"\C-o":"ranger-cd\C-m"'
-# for ranger:
-export PYTHONOPTIMIZE=2
 export HISTSIZE=""
 export HISTFILESIZE=""
 
@@ -44,20 +42,15 @@ parse_git_branch() {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
 
-ranger-cd() {
-    local ranger="$based/ranger/ranger.py"
-    if [ ! -f $ranger ]; then
-        local ranger="ranger"
+
+function ranger-cd {
+    tempfile="$(mktemp -t tmp.XXXXXX)"
+    ranger --choosedir="$tempfile" "${@:-$(pwd)}"
+    test -f "$tempfile" &&
+    if [ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]; then
+        cd -- "$(cat "$tempfile")"
     fi
-    if [[ $(ps -f |grep '${ranger} --choosedir=/tmp/chosen' |wc -l) == 2 ]]; then
-        exit
-    else
-        $ranger --choosedir=/tmp/chosen
-        if [ -f /tmp/chosen -a "$(cat /tmp/chosen)" != "$(pwd | tr -d "\n")" ]; then
-            cd "$(cat /tmp/chosen)"
-        fi
-        /bin/rm -f /tmp/chosen
-    fi
+    rm -f -- "$tempfile"
 }
 
 o-bashrc() { vim -c "e $confd/bashrc"; }
