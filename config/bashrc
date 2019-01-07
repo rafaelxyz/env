@@ -42,20 +42,15 @@ parse_git_branch() {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
 
-ranger-cd() {
-    local ranger="$based/ranger/ranger.py"
-    if [ ! -f $ranger ]; then
-        local ranger="ranger"
+
+function ranger-cd {
+    tempfile="$(mktemp -t tmp.XXXXXX)"
+    ranger --choosedir="$tempfile" "${@:-$(pwd)}"
+    test -f "$tempfile" &&
+    if [ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]; then
+        cd -- "$(cat "$tempfile")"
     fi
-    if [[ $(ps -f |grep '${ranger} --choosedir=/tmp/chosen' |wc -l) == 2 ]]; then
-        exit
-    else
-        $ranger --choosedir=/tmp/chosen
-        if [ -f /tmp/chosen -a "$(cat /tmp/chosen)" != "$(pwd | tr -d "\n")" ]; then
-            cd "$(cat /tmp/chosen)"
-        fi
-        /bin/rm -f /tmp/chosen
-    fi
+    rm -f -- "$tempfile"
 }
 
 o-bashrc() { vim -c "e $confd/bashrc"; }
