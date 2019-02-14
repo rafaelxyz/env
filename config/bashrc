@@ -9,7 +9,7 @@ echo -e "$txtylw- running bashrc, calling program is: $0$txtrst\n"
 parse_git_branch() {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
-PS1="\\""[$(tput setaf 7)\\]\[$txtgrn\]$USER@`hostname`:\\w \$(parse_git_branch)$ \\[$(tput sgr0)\\]\[$txtrst\]"
+PS1="\\""[$(tput setaf 7)\\]\[$txtred\]$USER@`hostname`:\\w \$(parse_git_branch)$ \\[$(tput sgr0)\\]\[$txtrst\]"
 
 based=`readlink -f $HOME/env`
 confd=$based/config
