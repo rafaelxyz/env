@@ -6,7 +6,6 @@ set editing-mode vi
 set show-mode-in-prompt on
 set visible-stats on
 #"\C-@":vi-movement-mode
-"jj":vi-movement-mode
 "ö":vi-movement-mode
 "\C-l":clear-screen
 "\C-p":history-search-backward
