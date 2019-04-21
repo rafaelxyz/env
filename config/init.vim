@@ -4,35 +4,41 @@ let mapleader="\<tab>"
 
 "" Plugins {{{
     call plug#begin('~/.config/nvim/plugged')
+        " Must have
         Plug 'romainl/apprentice' " colorscheme
-        Plug 'rafaelxyz/vim-msgcolor', " color for syslog
         Plug 'raimondi/delimitmate' " autoclose braces etc.
         Plug 'ntpeters/vim-better-whitespace' " show and :StripWhitespace
         Plug 'christoomey/vim-tmux-navigator' " seamless navigation between tmux and vim windows
         Plug 'tpope/vim-fugitive' " git
-        Plug 'octol/vim-cpp-enhanced-highlight' " ?
-        Plug 'machakann/vim-highlightedyank' " ?
-        Plug 'ryanoasis/vim-devicons'
-
+        Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
         Plug 'mhinz/vim-signify', " show modified lines, for git etc
         let g:signify_vcs_list = [ 'git' ]
-
         Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
         nmap <leader>z :FZF<cr>
-
+        Plug 'derekwyatt/vim-fswitch' " header/source switcher
+        au! bufenter *.c,*.cc let b:fswitchdst = 'hh,h'
+        au! bufenter *.h,*.hh let b:fswitchdst = 'cc,c,cpp'
+        nmap <leader>s :FSHere<CR>
+        Plug 'ludovicchabant/vim-gutentags'
+        let g:gutentags_project_root = ['.git']
+        Plug 'majutsushi/tagbar' " tagbar on the right
+        nmap <leader>t :TagbarToggle<cr>
+        " Extras
+        Plug 'octol/vim-cpp-enhanced-highlight' " ?
+        Plug 'ryanoasis/vim-devicons'
+        Plug 'rafaelxyz/vim-msgcolor', " color for syslog
+        Plug 'machakann/vim-highlightedyank' " colormark yanked section
         Plug 'itchyny/lightline.vim' " nice status line
         let g:lightline = {
             \ 'colorscheme': 'jellybeans',
-            \ 'component': {
-            \   'lineinfo': ' %3l:%-2v',
-            \ },
-            \ 'component_function': {
-            \   'readonly': 'LightlineReadonly',
-            \   'fugitive': 'LightlineFugitive'
-            \ },
+            \ 'active': { 'left': [ [ 'mode', 'paste' ], ['fugitive', 'readonly', 'filename', 'modified' ] ] },
+            \ 'component': { 'lineinfo': '%3l:%-2v' },
+            \ 'component_function': { 'fugitive': 'LightlineFugitive', 'readonly': 'LightlineReadonly' },
             \ 'separator': { 'left': '', 'right': '' },
             \ 'subseparator': { 'left': '', 'right': '' }
             \ }
+        set laststatus=2 " show lightline
+        set noshowmode " hide -- INSERT --
         function! LightlineReadonly()
             return &readonly ? '' : ''
         endfunction
@@ -43,55 +49,12 @@ let mapleader="\<tab>"
             endif
             return ''
         endfunction
-        set laststatus=2 " show lightline
-        set noshowmode " hide -- INSERT --
-
-        Plug 'derekwyatt/vim-fswitch' " header/source switcher
-        au! bufenter *.c,*.cc let b:fswitchdst = 'hh,h'
-        au! bufenter *.h,*.hh let b:fswitchdst = 'cc,c,cpp'
-        nmap <leader>s :FSHere<CR>
-
+        Plug 'w0rp/ale'  " linting
         Plug 'cazador481/fakeclip.neovim' " clipboard with X support
-        "let g:vim_fakeclip_tmux_plus=1  " enable + goes to tmux register
-
         Plug 'mizuchi/vim-ranger'
         nnoremap <leader>r :tabe %:p:h<cr>
-
-        Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-        Plug 'Xuyuanp/nerdtree-git-plugin'
-        let NERDTreeIgnore = ['\.pyc$', '\.o$']
-        nmap <leader>e :NERDTreeToggle<CR>
-
-        Plug 'majutsushi/tagbar' " tagbar on the right
-        nmap <leader>t :TagbarToggle<cr>
-
         Plug 'neomake/neomake' " Run Neomake to syntax check
         Plug 'sbdchd/neoformat'
-
-        Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-        Plug 'zchee/deoplete-jedi' " python completion
-
-        let g:deoplete#enable_at_startup = 1
-        let g:deoplete#omni_patterns = {}
-        let g:deoplete#omni_patterns.java = '[^. *\t]\.\w*'
-        let g:deoplete#sources = {}
-        let g:deoplete#sources._ = []
-        let g:deoplete#file#enable_buffer_path = 1
-
-
-        Plug 'ludovicchabant/vim-gutentags'
-        let g:gutentags_project_root = ['.git']
-
-        " Java
-        "Plug 'artur-shaik/vim-javacomplete2'
-        "autocmd FileType java setlocal omnifunc=javacomplete#Complete
-
-        Plug 'davidhalter/jedi-vim' " goto definition etc.
-        let g:jedi#completions_enabled = 1
-        let g:jedi#goto_command = '<leader>d'
-        let g:jedi#usages_command = '<leader>o'
-        let g:jedi#goto_assignments_command = '<leader>a'
-        nmap <leader>D :tab split<CR>:call jedi#goto()<CR>
     call plug#end()
 " }}}
 

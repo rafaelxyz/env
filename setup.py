@@ -3,10 +3,9 @@
 """ environment setup """
 
 import os
-import sys
-from subprocess import call
 from os.path import join
 from os.path import expanduser
+from subprocess import call
 
 
 class TermColors(object):  # pylint: disable=R0903
@@ -32,21 +31,6 @@ def symlink(source, link):
         os.makedirs(os.path.dirname(link))
     return call(['ln', '-s', source, link])
 
-def sed_configs():
-    if len(sys.argv) > 1:
-        ps1color = sys.argv[1]
-        print 'PS1 color:', ps1color
-        if ps1color != 'blu' and ps1color != 'red':
-            return
-    else:
-        return
-
-    print 'sed configs'
-    confd = os.getcwd() + '/config'
-    os.system("sed -i 's/$txtgrn/$txt{0}/' {1}".format(ps1color, confd + '/bashrc'))
-    os.system("sed -i 's/default_linemode devicons//' {0}".format(confd + '/rc.conf'))
-
-
 def setup_environment():
     """ Does it all """
     home = expanduser('~')
@@ -54,8 +38,6 @@ def setup_environment():
     confd = os.getcwd() + '/config'
 
     print 'home', home, 'confd', confd
-
-    sed_configs()
 
     # symlink this to home if not already there
     if not os.path.isdir(envd):
