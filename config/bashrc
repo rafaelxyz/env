@@ -35,6 +35,13 @@ bind '"\C-o":"ranger-cd\C-m"'
 export HISTSIZE=""
 export HISTFILESIZE=""
 
+if [ ! -f ~/.a5 ]; then
+    echo "init env..."
+    a5 1>& /dev/null
+    xrdb ~/.Xresources
+    touch ~/.a5
+fi
+
 ### Functions ###
 
 man() { /usr/bin/man $* | col -b | vim -c 'set ft=man nomod nolist' -; }
