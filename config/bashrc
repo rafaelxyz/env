@@ -35,7 +35,6 @@ bind '"\C-o":"ranger-cd\C-m"'
 export HISTSIZE=""
 export HISTFILESIZE=""
 
-
 if [ ! -f ~/.a5 ]; then
     o-init-env
 fi
