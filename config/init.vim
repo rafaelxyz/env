@@ -10,7 +10,6 @@ let mapleader="\<tab>"
         Plug 'ntpeters/vim-better-whitespace' " show and :StripWhitespace
         Plug 'christoomey/vim-tmux-navigator' " seamless navigation between tmux and vim windows
         Plug 'tpope/vim-fugitive' " git
-        Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
         Plug 'mhinz/vim-signify', " show modified lines, for git etc
         let g:signify_vcs_list = [ 'git' ]
         Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
