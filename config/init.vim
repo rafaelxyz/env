@@ -10,7 +10,7 @@ let mapleader="\<tab>"
         Plug 'ntpeters/vim-better-whitespace' " show and :StripWhitespace
         Plug 'christoomey/vim-tmux-navigator' " seamless navigation between tmux and vim windows
         Plug 'tpope/vim-fugitive' " git
-        Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
+        Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
         Plug 'mhinz/vim-signify', " show modified lines, for git etc
         let g:signify_vcs_list = [ 'git' ]
         Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -50,11 +50,11 @@ let mapleader="\<tab>"
             return ''
         endfunction
         Plug 'w0rp/ale'  " linting
-        Plug 'cazador481/fakeclip.neovim' " clipboard with X support
         Plug 'mizuchi/vim-ranger'
         nnoremap <leader>r :tabe %:p:h<cr>
         Plug 'neomake/neomake' " Run Neomake to syntax check
         Plug 'sbdchd/neoformat'
+        Plug 'roxma/vim-tmux-clipboard'
     call plug#end()
 " }}}
 

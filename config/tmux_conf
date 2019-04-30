@@ -32,6 +32,7 @@ set -g status-bg blue
 set -g status-right '#{prefix_highlight} | %a %Y-%m-%d %H:%M'
 # Removed DISPLAY from below default variables
 set -g update-environment " SSH_ASKPASS SSH_AUTH_SOCK SSH_AGENT_PID SSH_CONNECTION WINDOWID XAUTHORITY"
+set -g focus-events on
 
 # List of plugins
 set -g @tpm_plugins '          \
