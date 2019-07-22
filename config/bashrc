@@ -40,6 +40,8 @@ if [ ! -f ~/.a5 ]; then
     a5 1>& /dev/null
     xrdb ~/.Xresources
     touch ~/.a5
+    # disable gnome keyboard reset
+    gsettings set org.gnome.settings-daemon.plugins.keyboard active false
 fi
 
 ### Functions ###
