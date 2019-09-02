@@ -20,6 +20,11 @@ bind-key -n F4 select-window -t 3
 bind-key -n F9 swap-pane -U \; select-pane -D
 bind-key -n F10 swap-pane -D \; select-pane -U
 
+bind-key -r -T root       C-k                select-pane -U
+bind-key -r -T root       C-j                select-pane -D
+bind-key -r -T root       C-l                select-pane -R
+bind-key -r -T root       C-h                select-pane -L
+
 # clear screen with tmux prefix
 bind C-l send-keys 'C-l'
 
