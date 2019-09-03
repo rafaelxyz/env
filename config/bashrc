@@ -35,22 +35,25 @@ bind '"\C-o":"ranger-cd\C-m"'
 export HISTSIZE=""
 export HISTFILESIZE=""
 
+
 if [ ! -f ~/.a5 ]; then
-    echo "init a5..."
-    a5 1>& /dev/null
-    xrdb ~/.Xresources
-    touch ~/.a5
-    # disable gnome keyboard mapping reset
-    gsettings set org.gnome.settings-daemon.plugins.keyboard active false
+    o-init-env
 fi
 
 ### Functions ###
+
+o-init-env() {
+    echo "init env..."
+    a5 1>& /dev/null
+    xrdb ~/.Xresources
+    # disable gnome keyboard reset
+    gsettings set org.gnome.settings-daemon.plugins.keyboard active false
+}
 
 man() { /usr/bin/man $* | col -b | vim -c 'set ft=man nomod nolist' -; }
 parse_git_branch() {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
-
 
 function ranger-cd {
     tempfile="$(mktemp -t tmp.XXXXXX)"

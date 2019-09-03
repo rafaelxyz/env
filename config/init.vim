@@ -1,4 +1,5 @@
 " vim_off_: set fdm=marker fmr={{{,}}}:
+":SignifyDisable | ALEDisable | set nonumber
 
 let mapleader="\<tab>"
 
@@ -10,6 +11,7 @@ let mapleader="\<tab>"
         Plug 'ntpeters/vim-better-whitespace' " show and :StripWhitespace
         Plug 'christoomey/vim-tmux-navigator' " seamless navigation between tmux and vim windows
         Plug 'tpope/vim-fugitive' " git
+        "Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
         Plug 'mhinz/vim-signify', " show modified lines, for git etc
         let g:signify_vcs_list = [ 'git' ]
         Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -49,11 +51,11 @@ let mapleader="\<tab>"
             return ''
         endfunction
         Plug 'w0rp/ale'  " linting
-        Plug 'cazador481/fakeclip.neovim' " clipboard with X support
         Plug 'mizuchi/vim-ranger'
         nnoremap <leader>r :tabe %:p:h<cr>
         Plug 'neomake/neomake' " Run Neomake to syntax check
         Plug 'sbdchd/neoformat'
+        Plug 'roxma/vim-tmux-clipboard'
     call plug#end()
 " }}}
 
@@ -109,6 +111,7 @@ let mapleader="\<tab>"
 
 " Autocommands {{{
     au filetype xml setlocal foldmethod=syntax foldlevel=999 tabstop=2 shiftwidth=2
+    au filetype groovy setlocal syntax=off
     au filetype text setlocal textwidth=78
     au filetype cpp setlocal softtabstop=2 shiftwidth=2
     au filetype * set fo-=c fo-=r fo-=o " Removes comment auto formating, must be after filetype
