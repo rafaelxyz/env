@@ -7,6 +7,8 @@ let mapleader="\<tab>"
     call plug#begin('~/.config/nvim/plugged')
         " Must have
         Plug 'romainl/apprentice' " colorscheme
+        Plug 'endel/vim-github-colorscheme'
+        Plug 'altercation/vim-colors-solarized'
         Plug 'raimondi/delimitmate' " autoclose braces etc.
         Plug 'ntpeters/vim-better-whitespace' " show and :StripWhitespace
         Plug 'christoomey/vim-tmux-navigator' " seamless navigation between tmux and vim windows
@@ -60,7 +62,9 @@ let mapleader="\<tab>"
 " }}}
 
 " Settings {{{
-    colorscheme apprentice
+    syntax on
+    set background=light
+    colorscheme solarized
     set autoindent softtabstop=4 shiftwidth=4 expandtab
     "set inccommand=split
     set number " line numbers on
@@ -124,7 +128,7 @@ let mapleader="\<tab>"
 
 " Colors {{{
     " fix clashing colors with the std namespace, cppSTLnamespace is from vim-cpp-enhanced-highlight
-    hi link cppstlnamespace typedef
-    hi easymotiontarget ctermbg=none ctermfg=green
-    hi easymotionshade  ctermbg=none ctermfg=blue
+    "hi link cppstlnamespace typedef
+    "hi easymotiontarget ctermbg=none ctermfg=green
+    "hi easymotionshade  ctermbg=none ctermfg=blue
 " }}}
