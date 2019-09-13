@@ -33,7 +33,7 @@ let mapleader="\<tab>"
         Plug 'machakann/vim-highlightedyank' " colormark yanked section
         Plug 'itchyny/lightline.vim' " nice status line
         let g:lightline = {
-            \ 'colorscheme': 'jellybeans',
+            \ 'colorscheme': 'solarized',
             \ 'active': { 'left': [ [ 'mode', 'paste' ], ['fugitive', 'readonly', 'filename', 'modified' ] ] },
             \ 'component': { 'lineinfo': '%3l:%-2v' },
             \ 'component_function': { 'fugitive': 'LightlineFugitive', 'readonly': 'LightlineReadonly' },
