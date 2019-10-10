@@ -26,7 +26,7 @@ COLOR = TermColors()
 
 def symlink(source, link):
     """ unix symlink """
-    print COLOR.blue + 'creating symlink ', link, 'source:', source, COLOR.end
+    print(COLOR.blue + 'creating symlink ', link, 'source:', source, COLOR.end)
     if not os.path.isdir(os.path.dirname(link)):
         os.makedirs(os.path.dirname(link))
     return call(['ln', '-s', source, link])
@@ -37,7 +37,7 @@ def setup_environment():
     envd = join(home, 'env')
     confd = os.getcwd() + '/config'
 
-    print 'home', home, 'confd', confd
+    print('home', home, 'confd', confd)
 
     # symlink this to home if not already there
     if not os.path.isdir(envd):
