@@ -17,7 +17,7 @@ let mapleader="\<tab>"
         Plug 'mhinz/vim-signify', " show modified lines, for git etc
         let g:signify_vcs_list = [ 'git' ]
         Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-        nmap <leader>z :FZF<cr>
+        nmap <leader>f :FZF<cr>
         Plug 'derekwyatt/vim-fswitch' " header/source switcher
         au! bufenter *.c,*.cc let b:fswitchdst = 'hh,h'
         au! bufenter *.h,*.hh let b:fswitchdst = 'cc,c,cpp'
