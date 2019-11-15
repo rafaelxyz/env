@@ -13,7 +13,6 @@ let mapleader="\<tab>"
         Plug 'ntpeters/vim-better-whitespace' " show and :StripWhitespace
         Plug 'christoomey/vim-tmux-navigator' " seamless navigation between tmux and vim windows
         Plug 'tpope/vim-fugitive' " git
-        "Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
         Plug 'mhinz/vim-signify', " show modified lines, for git etc
         let g:signify_vcs_list = [ 'git' ]
         Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -118,6 +117,7 @@ let mapleader="\<tab>"
     au filetype groovy setlocal syntax=off
     au filetype text setlocal textwidth=78
     au filetype cpp setlocal softtabstop=2 shiftwidth=2
+    au filetype go setlocal tabstop=4 noexpandtab
     au filetype * set fo-=c fo-=r fo-=o " Removes comment auto formating, must be after filetype
     au bufreadpost syslog* SyslogSed
     au bufreadpost syslog* set ft=messages
