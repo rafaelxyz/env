@@ -57,6 +57,7 @@ let mapleader="\<tab>"
         Plug 'neomake/neomake' " Run Neomake to syntax check
         Plug 'sbdchd/neoformat'
         Plug 'roxma/vim-tmux-clipboard'
+        Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
     call plug#end()
 " }}}
 
