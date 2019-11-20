@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-""" environment setup """
+""" environment setup, testing """
 
 import os
 from os.path import join
