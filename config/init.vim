@@ -109,7 +109,8 @@ let mapleader="\<tab>"
     map <C-l> <C-w>l
 " }}}
 
-" Functions {{{
+" Commands/Functions {{{
+    command Nonumber SignifyDisable | ALEDisable | set nonumber
 " }}}
 
 " Autocommands {{{
@@ -117,7 +118,6 @@ let mapleader="\<tab>"
     au filetype groovy setlocal syntax=off
     au filetype text setlocal textwidth=78
     au filetype cpp setlocal softtabstop=2 shiftwidth=2
-    au filetype go setlocal tabstop=4 noexpandtab
     au filetype * set fo-=c fo-=r fo-=o " Removes comment auto formating, must be after filetype
     au bufreadpost syslog* SyslogSed
     au bufreadpost syslog* set ft=messages
