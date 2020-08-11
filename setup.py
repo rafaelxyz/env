@@ -71,9 +71,9 @@ def setup_environment():
     os.system('git clone https://github.com/alexanderjeurissen/ranger_devicons.git')
     os.system('xrdb ~/.Xresources')
     os.system('wget https://github.com/neovim/neovim/releases/download/v0.4.3/nvim.appimage')
-    os.system('chmod u+x nvim.appimage')
-    os.system('cp nvim.appimage /usr/bin/vi')
-    os.system('cp nvim.appimage /usr/bin/vim')
+    print('chmod u+x nvim.appimage')
+    print('sudo cp nvim.appimage /usr/bin/vi')
+    print('sudo cp nvim.appimage /usr/bin/vim')
 
 
 setup_environment()
