@@ -111,7 +111,8 @@ let mapleader="\<tab>"
     map <C-l> <C-w>l
 " }}}
 
-" Functions {{{
+" Commands/Functions {{{
+    command Nonumber SignifyDisable | ALEDisable | set nonumber
 " }}}
 
 " Autocommands {{{
