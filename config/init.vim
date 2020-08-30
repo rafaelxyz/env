@@ -58,6 +58,7 @@ let mapleader="\<tab>"
         Plug 'sbdchd/neoformat'
         Plug 'roxma/vim-tmux-clipboard'
         Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+        Plug 'bagrat/vim-buffet'
     call plug#end()
 " }}}
 
