@@ -103,6 +103,7 @@ let mapleader="\<tab>"
     nmap <leader>< '[<lt>']|nmap <leader>> '[>']
     nmap <leader>h :set list! <cr>
     " use the same commands to step items for both quickfix and location list
+    nmap <leader>o :copen <cr>
     nmap <leader>n :silent! lnext \| silent! cnext <cr>
     nmap <leader>p :silent! lprevious \| silent! cprevious <cr>
     " Short version of window switching
