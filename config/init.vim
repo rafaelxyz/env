@@ -102,15 +102,15 @@ let mapleader="\<tab>"
     " indent entire section after a paste
     nmap <leader>< '[<lt>']|nmap <leader>> '[>']
     nmap <leader>h :set list! <cr>
-    " use the same commands to step items for both quickfix and location list
     nmap <leader>o :copen <cr>
-    nmap <leader>n :silent! lnext \| silent! cnext <cr>
-    nmap <leader>p :silent! lprevious \| silent! cprevious <cr>
-    " Short version of window switching
-    map <C-h> <C-w>h
-    map <C-j> <C-w>j
-    map <C-k> <C-w>k
-    map <C-l> <C-w>l
+    " use the same commands to step items for quickfix, location list and diff
+    nmap <leader>n ]c \|:silent! lnext \| silent! cnext <cr>
+    nmap <leader>p [c \|:silent! lprevious \| silent! cprevious <cr>
+    "" Short version of window switching
+    "map <C-h> <C-w>h
+    "map <C-j> <C-w>j
+    "map <C-k> <C-w>k
+    "map <C-l> <C-w>l
 " }}}
 
 " Commands/Functions {{{
