@@ -57,6 +57,9 @@ def setup_environment():
     symlink(confd + '/Xresources', home + '/.Xresources')
     symlink(confd + '/ycm_extra_conf.py', home + '/.ycm_extra_conf.py')
     symlink(confd + '/rc.conf', home + '/.config/ranger/rc.conf')
+    # init kb & x
+    symlink(confd + '/bash.desktop', home + '/.config/autostart/bash.desktop')
+    symlink(confd + '/myinit', home + '/.myinit')
 
 
     # vim-plug
@@ -74,6 +77,7 @@ def setup_environment():
     os.system('chmod u+x nvim.appimage')
     os.system('cp nvim.appimage /usr/bin/vi')
     os.system('cp nvim.appimage /usr/bin/vim')
+
 
 
 setup_environment()
