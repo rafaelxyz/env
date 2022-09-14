@@ -2,15 +2,15 @@
         name = Rafael Odzakow
 [alias]
         g = grep --recurse-submodules
-	st = status
-	co = checkout
+        st = status
+        co = checkout
         ci = commit
         br = branch
         di = difftool
-	suup = "submodule update --remote --merge --init"
+        suup = "submodule update --remote --merge --init"
         subupd = submodule update --recursive --init
         tree = log --oneline --decorate --all --graph --pretty=format:'%Cred%h%Creset %s -%C(yellow)%d%Creset %Cgreen(%cr)'
         plog = log --pretty=format:'%Cred%h%Creset %s -%C(yellow)%d%Creset %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
         lol = log --graph --decorate --pretty=oneline --abbrev-commit
 [credential]
-	helper = store
+        helper = store
