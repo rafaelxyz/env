@@ -1,0 +1,17 @@
+set input-meta on
+set output-meta on
+set convert-meta off
+set editing-mode vi
+# show what vi mode is active
+set show-mode-in-prompt on
+set visible-stats on
+#"\C-@":vi-movement-mode
+"ö":vi-movement-mode
+"\C-l":clear-screen
+"\C-p":history-search-backward
+"\C-n":history-search-forward
+"\C-a":beginning-of-line
+"\C-e":end-of-line
+"\C-x":kill-word
+#"gg": beginning-of-history
+#"G": end-of-history

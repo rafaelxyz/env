@@ -1,0 +1,53 @@
+" options and mappings that are supported by both Vim and IdeaVim
+
+let mapleader = " "
+if has('ide')
+  " mappings and options that exist only in IdeaVim
+  map <leader>f <Action>(GotoFile)
+  map <leader>g <Action>(FindInPath)
+  map <leader>b <Action>(Switcher)
+  nmap <leader><leader> ':'
+  nmap ä <C-d>
+  nmap å <C-u>
+  nmap ö :w<CR>
+  vmap ö <ESC>
+  imap ö <ESC>
+  nmap Y 'y$'
+
+  map <leader>f <Action>(GotoFile)
+  map <leader>g <Action>(FindInPath)
+  map <leader>b <Action>(Switcher)
+
+  map <leader>d <Action>(Debug)
+  map <leader>r <Action>(RenameElement)
+  map <leader>c <Action>(Stop)
+  map <leader>z <Action>(ToggleDistractionFreeMode)
+
+  map <leader>s <Action>(SelectInProjectView)
+  map <leader>a <Action>(Annotate)
+  map <leader>h <Action>(Vcs.ShowTabbedFileHistory)
+  map <S-Space> <Action>(GotoNextError)
+
+  map <leader>b <Action>(ToggleLineBreakpoint)
+  map <leader>o <Action>(FileStructurePopup)
+
+  set commentary
+  set surrond
+  set showmode
+  set ideajoin
+
+
+
+  if &ide =~? 'intellij idea'
+    if &ide =~? 'community'
+      " some mappings and options for IntelliJ IDEA Community Edition
+    elseif &ide =~? 'ultimate'
+      " some mappings and options for IntelliJ IDEA Ultimate Edition
+    endif
+  elseif &ide =~? 'pycharm'
+    " PyCharm specific mappings and options
+  endif
+else
+  " some mappings for Vim/Neovim
+  nnoremap <leader>f <cmd>Telescope find_files<cr>
+endif

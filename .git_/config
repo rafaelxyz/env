@@ -1,0 +1,10 @@
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+	ignorecase = true
+	precomposeunicode = true
+[remote "xyz"]
+	url = https://github.com/rafaelxyz/env2.git
+	fetch = +refs/heads/*:refs/remotes/xyz/*
