@@ -8,13 +8,13 @@ let g:startify_change_to_dir  = 1  " This is the default value
 
 " Add bashrc and nvim config files
 let g:startify_bookmarks = [
-  \ {'b': '~/env/config/bashrc'},
-  \ {'i': '~/env/config/init.lua'},
-  \ {'p': '~/env/nvim/lua/plugins.lua'},
-  \ {'m': '~/env/nvim/lua/keymaps.lua'},
-  \ {'o': '~/env/nvim/lua/options.lua'},
-  \ {'s': '~/env/nvim/lua/plugins/startify.vim'},
-  \ {'w': '~/env/nvim/lua/plugins/which-key.lua'},
+  \ {'b': '~/.bashrc'},
+  \ {'i': '~/.config/nvim/init.lua'},
+  \ {'p': '~/.config/nvim/lua/plugins.lua'},
+  \ {'m': '~/.config/nvim/lua/keymaps.lua'},
+  \ {'o': '~/.config/nvim/lua/options.lua'},
+  \ {'s': '~/.config/nvim/lua/plugins/startify.vim'},
+  \ {'w': '~/.config/nvim/lua/plugins/which-key.lua'},
   \ {'~': '~/env/'},
   \ ]
 
