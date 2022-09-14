@@ -62,7 +62,7 @@ ranger-cd() {
     tempfile="$(mktemp -t tmp.XXXXXX)"
     local rngr=ranger
     test $WSL_DISTRO_NAME && rngr=$based/ranger/ranger.py;
-    $rngr --choosedir="$tempfile" "${@:-$(pwd)}"
+    EDITOR=nvim VISUAL=nvim $rngr --choosedir="$tempfile" "${@:-$(pwd)}"
     test -f "$tempfile" &&
     if [ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]; then
         cd -- "$(cat "$tempfile")"

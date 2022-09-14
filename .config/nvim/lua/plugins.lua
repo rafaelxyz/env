@@ -21,103 +21,40 @@ vim.api.nvim_create_autocmd('BufWritePost', {
   pattern = { 'commands.lua', 'keymaps.lua', 'options.lua', 'which-key.lua', 'utils.lua' }
 })
 
--- Initialize pluggins
 return require('packer').startup(function(use)
-  use 'wbthomason/packer.nvim' -- Manage packer
-  use 'kevinhwang91/rnvimr' -- Ranger
-  use 'tpope/vim-commentary' -- gc in visual select to comment out/in code
-  use 'christoomey/vim-tmux-navigator' -- Navigation between tmux and vim windows
-  use 'tpope/vim-fugitive' -- Git commands
-  use 'axelf4/vim-strip-trailing-whitespace' -- :StripTrailingWhitespace for whole file
-  use "moll/vim-bbye" -- Bdelete, maintain splits when removing buffer
-  use 'altercation/vim-colors-solarized'
-  use 'overcache/neosolarized'
-
-  -- Collection of configurations for the built-in LSP client
   use {
-    'neovim/nvim-lspconfig', config = function()
-      require'lspconfig'.pyright.setup{}
-      require'lspconfig'.clangd.setup{}
-      require'lspconfig'.bashls.setup{}
-      require'lspconfig'.vimls.setup{}
-      require'lspconfig'.dockerls.setup{}
-    end,
+    'wbthomason/packer.nvim', -- Manage packer
+    'kevinhwang91/rnvimr', -- Ranger
+    'tpope/vim-commentary', -- gc in visual select to comment out/in code
+    'christoomey/vim-tmux-navigator', -- Navigation between tmux and vim windows
+    'tpope/vim-fugitive', -- Git commands
+    'axelf4/vim-strip-trailing-whitespace', -- :StripTrailingWhitespace for whole file
+    'moll/vim-bbye', -- Bdelete, maintain splits when removing buffer
+    'altercation/vim-colors-solarized',
+    'overcache/neosolarized',
+
+    -- Plugins with custom configs
+    'karb94/neoscroll.nvim',
+    'folke/which-key.nvim',
+    'ahmedkhalf/project.nvim',
+    'neovim/nvim-lspconfig', -- Collection of configurations for the built-in LSP client
+    'williamboman/mason.nvim', -- Manage language packages
   }
 
-  -- Manage language packages
-  use {
-    'williamboman/mason.nvim',
-  }
-  require("mason").setup()
-
-  use {
-    'nvim-lualine/lualine.nvim', config = function()
-      require('plugins.lualine') end,
-    requires = { 'kyazdani42/nvim-web-devicons', opt = true },
-  }
-
-  use {
-    'lewis6991/gitsigns.nvim', config = function()
-      require('gitsigns').setup() end,
-    requires = { 'nvim-lua/plenary.nvim' },
-  }
+  use { 'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons', opt = true }, }
+  use { 'lewis6991/gitsigns.nvim', config = function() require('gitsigns').setup() end, requires = { 'nvim-lua/plenary.nvim' }, }
 
   -- Plugins with custom configs
-  --
-  use {
-    'kyazdani42/nvim-tree.lua',
-    requires = { 'kyazdani42/nvim-web-devicons' },
-    tag = 'nightly' -- optional, updated every week. (see issue #1193)
-  }
-  require('plugins.nvim-tree')
-
-  use {
-    'akinsho/toggleterm.nvim',
-     tag = 'v1.*',
-  }
-  require('plugins.toggleterm')
-
-  use {
-    'ahmedkhalf/project.nvim',
-  }
-  require('plugins.project_nvim')
-
-  use {
-    'karb94/neoscroll.nvim',
-  }
-  require('plugins.neoscroll')
-
-  use {
-    'folke/which-key.nvim',
-  }
-  require('plugins.which-key')
-
+  use { 'kyazdani42/nvim-tree.lua', requires = { 'kyazdani42/nvim-web-devicons' }, tag = 'nightly' } -- optional, updated every week. (see issue #1193)
+  use { 'akinsho/toggleterm.nvim', tag = 'v1.*', }
   use {'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons'}
-  require("bufferline").setup{}
-
-  require('plugins.bufferline')
-
-  use {
-    'nvim-treesitter/nvim-treesitter',
-    -- run = ':TSUpdate'
-  }
-  require('plugins.treesitter')
-
-  use {
-    'nvim-telescope/telescope.nvim',
-    requires = { 'nvim-lua/plenary.nvim' },
-  }
-  require('plugins.telescope')
-
-  use {
-    'mhinz/vim-startify', config = function()
-      local path = vim.fn.stdpath('config') .. '/lua/plugins/startify.vim'
-      vim.cmd('source ' .. path)
-    end
-  }
+  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+  use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' }, }
+  use { 'mhinz/vim-startify', config = function() local path = vim.fn.stdpath('config') .. '/lua/plugins/startify.vim' vim.cmd('source ' .. path) end }
 
   if packer_bootstrap then
     require('packer').sync()
   end
+
 end)
 -- vim: sw=2 ts=2 sts=2 nowrap
