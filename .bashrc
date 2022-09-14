@@ -37,7 +37,6 @@ bind '"\C-o":"ranger-cd\C-m"'
 export HISTSIZE=""
 export HISTFILESIZE=""
 
-mac
 
 # Functions
 
@@ -87,3 +86,5 @@ o-docker-clean() {
 man() { /usr/bin/man $* | col -b | vim -c 'set ft=man nomod nolist' -; }
 o-bashrc() { vim -c "e $confd/bashrc"; }
 o-vecka-nu() { echo "1 + `date '+%U'`" | bc; }
+
+mac

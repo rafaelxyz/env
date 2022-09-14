@@ -92,16 +92,14 @@ return require('packer').startup(function(use)
   }
   require('plugins.which-key')
 
-  use {
-    'akinsho/bufferline.nvim',
-    requires = 'kyazdani42/nvim-web-devicons',
-    event = 'BufWinEnter',
-  }
+  use {'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons'}
+  require("bufferline").setup{}
+
   require('plugins.bufferline')
 
   use {
     'nvim-treesitter/nvim-treesitter',
-    run = ':TSUpdate'
+    -- run = ':TSUpdate'
   }
   require('plugins.treesitter')
 
