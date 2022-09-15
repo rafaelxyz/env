@@ -6,10 +6,12 @@ require('plugins')
 
 -- requires
 require'lspconfig'.pyright.setup{}
+require'lspconfig'.elmls.setup{}
 require'lspconfig'.clangd.setup{}
 require'lspconfig'.bashls.setup{}
 require'lspconfig'.vimls.setup{}
 require'lspconfig'.dockerls.setup{}
+require'lspconfig'.sumneko_lua.setup{}
 
 require('mason').setup()
 require('nvim-tree').setup()
