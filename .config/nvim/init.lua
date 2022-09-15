@@ -15,8 +15,8 @@ require'lspconfig'.sumneko_lua.setup{}
 
 require('mason').setup()
 require('nvim-tree').setup()
-require("plugins.bufferline")
 
+require("plugins.bufferline")
 require('plugins.lualine')
 require('plugins.telescope')
 require('plugins.treesitter')
