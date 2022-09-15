@@ -25,7 +25,7 @@ function OpenURIUnderCursor()
     if type(uri) ~= 'nil' then
       uri = string.gsub(uri, "#", "\\#") --double escapes any # signs
       uri = '"'..uri..'"'
-      vim.cmd('!xdg-open '..uri..' > /dev/null')
+      vim.cmd('!open '..uri..' > /dev/null')
       vim.cmd('mode')
       print(uri)
       return true
