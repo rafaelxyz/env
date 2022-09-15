@@ -11,7 +11,16 @@ require'lspconfig'.clangd.setup{}
 require'lspconfig'.bashls.setup{}
 require'lspconfig'.vimls.setup{}
 require'lspconfig'.dockerls.setup{}
-require'lspconfig'.sumneko_lua.setup{}
+require'lspconfig'.sumneko_lua.setup{
+  settings = {
+    Lua = {
+      diagnostics = {
+        -- Get the language server to recognize the `vim` global
+        globals = {'vim', 'solarized'},
+      },
+    },
+  },
+}
 
 require('mason').setup()
 require('nvim-tree').setup()

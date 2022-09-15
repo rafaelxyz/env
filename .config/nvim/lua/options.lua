@@ -20,4 +20,6 @@ vim.opt.expandtab = true
 vim.g.rnvimr_enable_ex = true
 vim.g.rnvimr_enable_picker = true
 
+vim.diagnostic.config({ virtual_text=false })
+
 -- vim.g.nvim_tree_respect_buf_cwd = true
