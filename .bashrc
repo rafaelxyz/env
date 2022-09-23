@@ -20,22 +20,19 @@ home="/home/erafodz"
 
 test -f $home/tmux_completion.sh && . $home/tmux_completion.sh
 test -f $home/git-completion.bash && . $home/git-completion.bash
-export EDITOR="vim"
+export EDITOR="nvim"
 export SHELL=/bin/bash
 export TERM=xterm-256color
-#alias vi="vim"
+export HISTSIZE=""
+export HISTFILESIZE=""
 alias ll="ls -lah --color=auto"
 alias ls="ls --color=auto"
 alias info=viminfo
 alias grep="grep --color=auto"
 alias xterm="uxterm -bg black -fg white"
-alias mail="mail -r rafael.odzakow@ericsson.com"
 alias a6="setxkbmap -option ctrl:nocaps;xmodmap $based/dvorak/xmodmap2"
 alias dk="setxkbmap se -option;"
 alias rm="trash-put"
-bind '"\C-o":"ranger-cd\C-m"'
-export HISTSIZE=""
-export HISTFILESIZE=""
 
 
 # Functions
@@ -69,6 +66,8 @@ ranger-cd() {
     fi
     rm -f -- "$tempfile"
 }
+
+bind -x '"\C-o": ranger-cd;'
 
 o-color-print() {
     # for use in tmux

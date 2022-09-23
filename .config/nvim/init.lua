@@ -16,11 +16,13 @@ require'lspconfig'.sumneko_lua.setup{
     Lua = {
       diagnostics = {
         -- Get the language server to recognize the `vim` global
-        globals = {'vim', 'solarized'},
+        globals = {'vim', 'solarized', 'packer_group', 'config_group'},
       },
     },
   },
 }
+require'lspconfig'.marksman.setup{}
+require'lspconfig'.puppet.setup{}
 
 require('mason').setup()
 require('nvim-tree').setup()

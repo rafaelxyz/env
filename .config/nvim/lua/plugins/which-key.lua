@@ -22,12 +22,15 @@ local vopts = {
 }
 
 local mappings = {
+  ["<space>"] = {"", "Colon"}, -- real mapping in keymaps.lua
   ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
   ["e"] = { "<cmd>:NvimTreeToggle<CR>", "NvimTree" },
   ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
-  ["i"] = { "<Cmd>lua vim.lsp.buf.hover()<CR>", "Inspect function" },
-  ["n"] = { "<cmd>No<cr>", "Clear left sidebar" },
-  ["p"] = { '"+p', "Paste from system clippboard" },
+  ["K"] = { "<Cmd>lua vim.lsp.buf.hover()<CR>", "Inspect function" },
+  ["N"] = { "<cmd>No<cr>", "Clear left sidebar" },
+  ["n"] = { "<cmd>lua vim.diagnostic.goto_next()<cr>", "Diagnostic next" },
+  ["p"] = { "<cmd>lua vim.diagnostic.goto_prev()<cr>", "Diagnostic prev" },
+  ["P"] = { '"+p', "Paste from system clippboard" },
   ["r"] = { "<cmd>:RnvimrToggle<CR>", "Ranger" },
   ["R"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
   ["v"] = { "<cmd>vert diffsplit |bp|windo diffthis<cr>", 'Diff current and next buffer', },
@@ -84,21 +87,19 @@ local mappings = {
     f = { "<cmd>lua vim.lsp.buf.formatting()<cr>", "Format" },
     n = { "<cmd>LspInfo<cr>", "Info" },
     N = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
-    j = { "<cmd>lua vim.diagnostic.show()<CR>", "Show Diagnostic" },
-    k = { "<cmd>lua vim.diagnostic.hide()<CR>", "Hide Diagnostic" },
+    g = { "<cmd>lua vim.diagnostic.show()<CR>", "Show Diagnostic" },
+    G = { "<cmd>lua vim.diagnostic.hide()<CR>", "Hide Diagnostic" },
+    k = { "<Cmd>lua vim.lsp.buf.signature_help()<CR>", "Signature help" },
+    K = { "<Cmd>lua vim.lsp.buf.hover()<CR>", "Hover inspect" },
     l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
     q = { "<cmd>lua vim.diagnostic.setloclist()<cr>", "Quickfix" },
     Q = { "<Cmd>lua vim.diagnostic.setqflist()<CR>", "Open all project diagnostics in quickfix list" },
     r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
     s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
     S = { "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", "Workspace Symbols" },
-    h = { "<Cmd>lua vim.lsp.buf.hover()<CR>", "Inspect function" },
-    -- " use the same commands to step items for quickfix, location list and diff
-    -- map('n', '<leader>n', ']c \\|:silent! lnext \\| silent! cnext <cr>')
-    -- map('n', '<leader>p', '[c \\|:silent! lprevious \\| silent! cprevious <cr>')
   },
 
-  s = {
+  ss= {
     name = "TeleScope",
     b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
     c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
@@ -117,7 +118,7 @@ local mappings = {
     v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
   },
 
-  P = {
+  a = {
     name = "Packer",
     c = { "<cmd>PackerCompile<cr>", "Compile" },
     C = { "<cmd>PackerClean<cr>", "Clean" },
@@ -149,7 +150,7 @@ local vmappings = {
   },
 }
 
-which_key.setup(setup)
+-- which_key.setup(setup)
 which_key.register(mappings, opts)
 which_key.register(vmappings, vopts)
 
