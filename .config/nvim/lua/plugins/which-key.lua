@@ -34,8 +34,8 @@ local mappings = {
   ["r"] = { "<cmd>:RnvimrToggle<CR>", "Ranger" },
   ["R"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
   ["v"] = { "<cmd>vert diffsplit |bp|windo diffthis<cr>", 'Diff current and next buffer', },
-  ["w"] = { "<cmd>w!<CR>", "Save" },
-  ["q"] = { "<cmd>q!<CR>", "Quit" },
+  ["w"] = { "<cmd>w<CR>", "Save" },
+  ["q"] = { "<cmd>qa<CR>", "Quit" },
 
   f = {
     name = "Find",
