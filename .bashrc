@@ -22,8 +22,8 @@ test -f $home/tmux_completion.sh && . $home/tmux_completion.sh
 test -f $home/git-completion.bash && . $home/git-completion.bash
 export EDITOR="nvim"
 export SHELL=/bin/bash
-export TERM=xterm-256color
 export HISTSIZE=""
+#export TERM=xterm-256color
 export HISTFILESIZE=""
 alias ll="ls -lah --color=auto"
 alias ls="ls --color=auto"

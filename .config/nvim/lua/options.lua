@@ -15,7 +15,7 @@ vim.opt.softtabstop=2
 vim.opt.shiftwidth=2
 vim.opt.autoindent = true
 vim.opt.expandtab = true
-
+vim.api.nvim_command('set fcs=eob:\\ ')
 -- Ranger
 vim.g.rnvimr_enable_ex = true
 vim.g.rnvimr_enable_picker = true

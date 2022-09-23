@@ -16,8 +16,4 @@ require('bufferline').setup {
         }
     },
   },
-  highlights = {
-    -- Lighter background on tab row
-    fill = { bg = { attribute = "bg", highlight = "Pmenu" }, },
-  }
 }
