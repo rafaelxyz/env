@@ -24,7 +24,6 @@ vim.api.nvim_create_autocmd('BufWritePost', {
 return require('packer').startup(function(use)
   use {
     'wbthomason/packer.nvim', -- Manage packer
-    'kevinhwang91/rnvimr', -- Ranger
     'tpope/vim-commentary', -- gc in visual select to comment out/in code
     'christoomey/vim-tmux-navigator', -- Navigation between tmux and vim windows
     'tpope/vim-fugitive', -- Git commands
@@ -32,6 +31,7 @@ return require('packer').startup(function(use)
     'moll/vim-bbye', -- Bdelete, maintain splits when removing buffer
     'altercation/vim-colors-solarized',
     'overcache/neosolarized',
+    'simrat39/symbols-outline.nvim',
 
     -- Plugins with custom configs
     'karb94/neoscroll.nvim',
@@ -41,6 +41,7 @@ return require('packer').startup(function(use)
     'williamboman/mason.nvim', -- Manage language packages
   }
 
+  use { 'francoiscabrol/ranger.vim', requires = { 'rbgrouleff/bclose.vim' } } -- Ranger
   use { 'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons', opt = true }, }
   use { 'lewis6991/gitsigns.nvim', config = function() require('gitsigns').setup() end, requires = { 'nvim-lua/plenary.nvim' }, }
 

@@ -26,6 +26,7 @@ require'lspconfig'.puppet.setup{}
 
 require('mason').setup()
 require('nvim-tree').setup()
+require("symbols-outline").setup()
 
 require("plugins.bufferline")
 require('plugins.lualine')

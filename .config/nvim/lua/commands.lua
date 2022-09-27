@@ -45,3 +45,5 @@ function OpenURIUnderCursor()
   if (open_uri('https://github.com/'..string.match(word_under_cursor, regex_plugin_url))) then return end
 end
 vim.api.nvim_create_user_command('OpenURIUnderCursor', OpenURIUnderCursor, {})
+
+vim.cmd('autocmd TermOpen * setlocal nonumber')

@@ -31,11 +31,12 @@ local mappings = {
   ["n"] = { "<cmd>lua vim.diagnostic.goto_next()<cr>", "Diagnostic next" },
   ["p"] = { "<cmd>lua vim.diagnostic.goto_prev()<cr>", "Diagnostic prev" },
   ["P"] = { '"+p', "Paste from system clippboard" },
-  ["r"] = { "<cmd>:RnvimrToggle<CR>", "Ranger" },
+  ["r"] = { "<cmd>RangerCurrentDirectory<CR>", "Ranger" },
   ["R"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
   ["v"] = { "<cmd>vert diffsplit |bp|windo diffthis<cr>", 'Diff current and next buffer', },
   ["w"] = { "<cmd>w<CR>", "Save" },
   ["q"] = { "<cmd>qa<CR>", "Quit" },
+  ["s"] = { "<cmd>SymbolsOutline<CR>", "SymbolsOutline" },
 
   f = {
     name = "Find",
@@ -99,7 +100,7 @@ local mappings = {
     S = { "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", "Workspace Symbols" },
   },
 
-  ss= {
+  t= {
     name = "TeleScope",
     b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
     c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
@@ -111,7 +112,7 @@ local mappings = {
     C = { "<cmd>Telescope commands<cr>", "Commands" },
   },
 
-  t = {
+  T = {
     name = "Terminal",
     f = { "<cmd>ToggleTerm direction=float<cr>", "Float" },
     h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
