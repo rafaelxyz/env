@@ -23,25 +23,24 @@ vim.api.nvim_create_autocmd('BufWritePost', {
 
 return require('packer').startup(function(use)
   use {
-    'wbthomason/packer.nvim', -- Manage packer
-    'tpope/vim-commentary', -- gc in visual select to comment out/in code
-    'christoomey/vim-tmux-navigator', -- Navigation between tmux and vim windows
-    'tpope/vim-fugitive', -- Git commands
+    -- init.lua does the setup and optional custom config
+    'wbthomason/packer.nvim',               -- Manage packer
+    'tpope/vim-commentary',                 -- gc in visual select to comment out/in code
+    'christoomey/vim-tmux-navigator',       -- Navigation between tmux and vim windows
+    'tpope/vim-fugitive',                   -- Git commands
     'axelf4/vim-strip-trailing-whitespace', -- :StripTrailingWhitespace for whole file
-    'moll/vim-bbye', -- Bdelete, maintain splits when removing buffer
+    'moll/vim-bbye',                        -- Bdelete, maintain splits when removing buffer
     'altercation/vim-colors-solarized',
     'overcache/neosolarized',
     'simrat39/symbols-outline.nvim',
-
-    -- Plugins with custom configs
     'karb94/neoscroll.nvim',
     'folke/which-key.nvim',
     'ahmedkhalf/project.nvim',
-    'neovim/nvim-lspconfig', -- Collection of configurations for the built-in LSP client
-    'williamboman/mason.nvim', -- Manage language packages
+    'neovim/nvim-lspconfig',                -- Collection of configurations for the built-in LSP client
+    'williamboman/mason.nvim',              -- Manage language packages
   }
 
-  use { 'francoiscabrol/ranger.vim', requires = { 'rbgrouleff/bclose.vim' } } -- Ranger
+  use { 'francoiscabrol/ranger.vim', requires = { 'rbgrouleff/bclose.vim' } }
   use { 'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons', opt = true }, }
   use { 'lewis6991/gitsigns.nvim', config = function() require('gitsigns').setup() end, requires = { 'nvim-lua/plenary.nvim' }, }
 
