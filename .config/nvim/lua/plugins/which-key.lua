@@ -22,7 +22,6 @@ local vopts = {
 }
 
 local mappings = {
-  ["<space>"] = {"", "Colon"}, -- real mapping in keymaps.lua
   ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
   ["e"] = { "<cmd>:NvimTreeToggle<CR>", "NvimTree" },
   ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },

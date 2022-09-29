@@ -23,6 +23,8 @@ require'lspconfig'.sumneko_lua.setup{
 }
 require'lspconfig'.marksman.setup{}
 require'lspconfig'.puppet.setup{}
+require'lspconfig'.puppet.setup{}
+require'lspconfig'.clangd.setup{}
 
 require('mason').setup()
 require('nvim-tree').setup()
