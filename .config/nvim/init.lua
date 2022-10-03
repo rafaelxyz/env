@@ -4,13 +4,21 @@ require('keymaps')
 require('commands')
 require('plugins')
 
--- requires
+-- PLUGINS
+require('mason').setup()
+require('nvim-tree').setup()
+require("symbols-outline").setup()
+
+-- lspconfig
 require'lspconfig'.pyright.setup{}
 require'lspconfig'.elmls.setup{}
 require'lspconfig'.clangd.setup{}
 require'lspconfig'.bashls.setup{}
 require'lspconfig'.vimls.setup{}
 require'lspconfig'.dockerls.setup{}
+require'lspconfig'.marksman.setup{}
+require'lspconfig'.puppet.setup{}
+require'lspconfig'.clangd.setup{}
 require'lspconfig'.sumneko_lua.setup{
   settings = {
     Lua = {
@@ -21,15 +29,8 @@ require'lspconfig'.sumneko_lua.setup{
     },
   },
 }
-require'lspconfig'.marksman.setup{}
-require'lspconfig'.puppet.setup{}
-require'lspconfig'.puppet.setup{}
-require'lspconfig'.clangd.setup{}
 
-require('mason').setup()
-require('nvim-tree').setup()
-require("symbols-outline").setup()
-
+-- custom plugin configs
 require("plugins.bufferline")
 require('plugins.lualine')
 require('plugins.telescope')
