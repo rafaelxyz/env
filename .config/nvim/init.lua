@@ -19,6 +19,7 @@ require'lspconfig'.dockerls.setup{}
 require'lspconfig'.marksman.setup{}
 require'lspconfig'.puppet.setup{}
 require'lspconfig'.clangd.setup{}
+require'lspconfig'.yamlls.setup{}
 require'lspconfig'.sumneko_lua.setup{
   settings = {
     Lua = {

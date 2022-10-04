@@ -24,7 +24,6 @@ eval "$(register-python-argcomplete pipx)"
 export EDITOR="nvim"
 export SHELL=/bin/bash
 export HISTSIZE=""
-#export TERM=xterm-256color
 export HISTFILESIZE=""
 alias ll="ls -lah --color=auto"
 alias ls="ls --color=auto"
