@@ -3,7 +3,7 @@
 stow .
 
 # Requirements for macos
-brew install ripgrep tmux ...
+brew install ripgrep tmux pipx
 
 # Requirements for Ubuntu
 sudo apt-get install git ranger tmux trash-cli exuberant-ctags -y

@@ -20,6 +20,7 @@ home="/home/erafodz"
 
 test -f $home/tmux_completion.sh && . $home/tmux_completion.sh
 test -f $home/git-completion.bash && . $home/git-completion.bash
+eval "$(register-python-argcomplete pipx)"
 export EDITOR="nvim"
 export SHELL=/bin/bash
 export HISTSIZE=""
@@ -87,3 +88,6 @@ o-bashrc() { vim -c "e $confd/bashrc"; }
 o-vecka-nu() { echo "1 + `date '+%U'`" | bc; }
 
 mac
+
+# Created by `pipx` on 2022-09-30 11:18:55
+export PATH="$PATH:/Users/rafaelo/.local/bin"
