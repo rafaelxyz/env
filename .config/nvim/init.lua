@@ -9,7 +9,7 @@ require('mason').setup()
 require('nvim-tree').setup()
 require("symbols-outline").setup()
 
--- lspconfig
+-- lspconfig setup
 require'lspconfig'.pyright.setup{}
 require'lspconfig'.elmls.setup{}
 require'lspconfig'.clangd.setup{}
