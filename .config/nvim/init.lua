@@ -9,27 +9,9 @@ require('mason').setup()
 require('nvim-tree').setup()
 require("symbols-outline").setup()
 
--- lspconfig setup
-require'lspconfig'.pyright.setup{}
-require'lspconfig'.elmls.setup{}
-require'lspconfig'.clangd.setup{}
-require'lspconfig'.bashls.setup{}
-require'lspconfig'.vimls.setup{}
-require'lspconfig'.dockerls.setup{}
-require'lspconfig'.marksman.setup{}
-require'lspconfig'.puppet.setup{}
-require'lspconfig'.clangd.setup{}
-require'lspconfig'.yamlls.setup{}
-require'lspconfig'.sumneko_lua.setup{
-  settings = {
-    Lua = {
-      diagnostics = {
-        -- Get the language server to recognize the `vim` global
-        globals = {'vim', 'solarized', 'packer_group', 'config_group'},
-      },
-    },
-  },
-}
+local lsp = require('lsp-zero')
+lsp.preset('recommended')
+lsp.setup()
 
 -- custom plugin configs
 require("plugins.bufferline")
