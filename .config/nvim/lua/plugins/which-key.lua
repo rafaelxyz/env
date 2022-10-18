@@ -22,7 +22,6 @@ local vopts = {
 }
 
 local mappings = {
-  ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
   ["e"] = { "<cmd>:NvimTreeToggle<CR>", "NvimTree" },
   ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
   ["N"] = { "<cmd>No<cr>", "Clear left sidebar" },
@@ -34,12 +33,8 @@ local mappings = {
   ["v"] = { "<cmd>vert diffsplit |bp|windo diffthis<cr>", 'Diff current and next buffer', },
   ["w"] = { "<cmd>w<CR>", "Save" },
   ["s"] = { "<cmd>SymbolsOutline<CR>", "SymbolsOutline" },
-
-  q = {
-    name = "Quit",
-    q = { "<cmd>qa<CR>", "Quit" },
-    w = { "<cmd>wincmd q<CR>", "Close window" },
-  },
+  ["c"] = { "<cmd>wincmd c<CR>", "Close window" },
+  ["q"] = { "<cmd>qa<CR>", "Quit all windows" },
 
   f = {
     name = "Find",

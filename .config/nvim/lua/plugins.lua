@@ -29,7 +29,6 @@ return require('packer').startup(function(use)
     'christoomey/vim-tmux-navigator',       -- Navigation between tmux and vim windows
     'tpope/vim-fugitive',                   -- Git commands
     'axelf4/vim-strip-trailing-whitespace', -- :StripTrailingWhitespace for whole file
-    'moll/vim-bbye',                        -- Bdelete, maintain splits when removing buffer
     'altercation/vim-colors-solarized',
     'overcache/neosolarized',
     'simrat39/symbols-outline.nvim',
