@@ -38,6 +38,7 @@ return require('packer').startup(function(use)
     'ahmedkhalf/project.nvim',
     'neovim/nvim-lspconfig',                -- Collection of configurations for the built-in LSP client
     'williamboman/mason.nvim',              -- Manage language packages
+    'wfxr/minimap.vim'
   }
 
   use { 'francoiscabrol/ranger.vim', requires = { 'rbgrouleff/bclose.vim' } }
