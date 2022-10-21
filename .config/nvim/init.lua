@@ -8,7 +8,13 @@ require('plugins')
 require('mason').setup()
 require('nvim-tree').setup()
 require("symbols-outline").setup()
-
+require("nvim-tree").setup({
+  update_cwd = true,
+  update_focused_file = {
+    enable = true,
+    update_cwd = true
+  },
+})
 local lsp = require('lsp-zero')
 lsp.preset('recommended')
 lsp.setup()

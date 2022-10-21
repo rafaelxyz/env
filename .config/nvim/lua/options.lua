@@ -17,5 +17,5 @@ vim.opt.autoindent = true
 vim.opt.expandtab = true
 vim.api.nvim_command('set fcs=eob:\\ ')
 vim.diagnostic.config({ virtual_text=false })
--- vim.g.minimap_auto_start = true
+vim.g.minimap_auto_start = true
 vim.g.minimap_git_colors = true
