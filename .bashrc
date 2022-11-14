@@ -33,6 +33,8 @@ alias xterm="uxterm -bg black -fg white"
 alias a6="setxkbmap -option ctrl:nocaps;xmodmap $based/dvorak/xmodmap2"
 alias dk="setxkbmap se -option;"
 alias rm="trash-put"
+alias kx='f() { [ "$1" ] && kubectl config use-context $1 || kubectl config current-context ; } ; f'
+alias kn='f() { [ "$1" ] && kubectl config set-context --current --namespace $1 || kubectl config view --minify | grep namespace | cut -d" " -f6 ; } ; f'
 
 
 # Functions
@@ -48,7 +50,6 @@ mac() {
   set PAGER nvim
   eval "$(pyenv init -)"
   [ -f /opt/homebrew/etc/bash_completion ] && . /opt/homebrew/etc/bash_completion
-  alias kubectl="minikube kubectl --"
 }
 
 parse_git_branch() {
