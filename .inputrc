@@ -7,7 +7,7 @@ set show-mode-in-prompt on
 set visible-stats on
 #"\C-@":vi-movement-mode
 "ö":vi-movement-mode
-"\C-l":clear-screen
+#"\C-l":clear-screen
 "\C-p":history-search-backward
 "\C-n":history-search-forward
 "\C-a":beginning-of-line

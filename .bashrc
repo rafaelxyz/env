@@ -25,6 +25,7 @@ export EDITOR="nvim"
 export SHELL=/bin/bash
 export HISTSIZE=""
 export HISTFILESIZE=""
+alias cc="clear"
 alias ll="ls -lah --color=auto"
 alias ls="ls --color=auto"
 alias info=viminfo
