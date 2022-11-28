@@ -33,8 +33,8 @@ local mappings = {
   ["v"] = { "<cmd>vert diffsplit |bp|windo diffthis<cr>", 'Diff current and next buffer', },
   ["w"] = { "<cmd>w<CR>", "Save" },
   ["s"] = { "<cmd>SymbolsOutline<CR>", "SymbolsOutline" },
-  ["C"] = { "<cmd>wincmd c<CR>", "Close window" },
-  ["c"] = { "<cmd>Bclose<CR>", "Close buffer" },
+  ["c"] = { "<cmd>wincmd c<CR>", "Close window" },
+  ["C"] = { "<cmd>Bclose<CR>", "Close buffer" },
   ["q"] = { "<cmd>qa<CR>", "Quit all windows" },
   ["m"] = { "<cmd>MinimapToggle<CR>", "Toggle minimap" },
 
