@@ -1,5 +1,6 @@
 [user]
-        name = Rafael Odzakow
+	name = Rafael
+	email = rafaelxyz@gmail.com
 [alias]
         g = grep --recurse-submodules
         st = status
