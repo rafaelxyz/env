@@ -49,7 +49,7 @@ set-option -sg escape-time 10
 #set-option default-terminal "screen-256color"
 set-option -sa terminal-overrides ',xterm:RGB'
 set -as terminal-features ',xterm:clipboard'
-set -s copy-command 'xsel -i'
+#set -s copy-command 'xsel -ib'
 
 # new terminals in cwd
 bind '"' split-window -c "#{pane_current_path}"
