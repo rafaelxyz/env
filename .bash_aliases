@@ -23,7 +23,7 @@ alias ll="ls -lah --color=auto"
 alias ls="ls --color=auto"
 alias grep="grep --color=auto"
 alias xterm="uxterm -bg black -fg white"
-alias a6="setxkbmap -option ctrl:nocaps;xmodmap $HOME/.Xmodmap"
+alias a6="setxkbmap se -option ctrl:nocaps;xmodmap $HOME/.Xmodmap"
 alias dk="setxkbmap se -option;"
 alias rm="trash-put"
 alias kx='f() { [ "$1" ] && kubectl config use-context $1 || kubectl config current-context ; } ; f'
