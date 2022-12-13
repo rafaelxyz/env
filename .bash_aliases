@@ -13,12 +13,17 @@ PS1="\\""[$(tput setaf 7)\\]\[$txtcyn\]$USER@`hostname`:\\w \$(parse_git_branch)
 
 based=`readlink -f $HOME/env`
 
+set -o vi
+set EDITOR nvim
+set VISUAL nvim
+set PAGER nvim
 test -f $HOME/tmux_completion.sh && . $HOME/tmux_completion.sh
 test -f $HOME/git-completion.bash && . $HOME/git-completion.bash
 export EDITOR="nvim"
 export SHELL=/bin/bash
 export HISTSIZE=""
 export HISTFILESIZE=""
+alias vi="nvim"
 alias ll="ls -lah --color=auto"
 alias ls="ls --color=auto"
 alias grep="grep --color=auto"
@@ -36,12 +41,7 @@ parse_git_branch() {
 mac() {
   export LC_ALL=en_US.UTF-8
   export LANG=en_US.UTF-8
-  set -o vi
-  alias vi="nvim"
   export PATH=/opt/homebrew/bin:$PATH
-  set EDITOR nvim
-  set VISUAL nvim
-  set PAGER nvim
   eval "$(pyenv init -)"
   [ -f /opt/homebrew/etc/bash_completion ] && . /opt/homebrew/etc/bash_completion
 }
@@ -76,7 +76,7 @@ o-docker-clean() {
 o-vecka-nu() { echo "1 + `date '+%U'`" | bc; }
 
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-  :
+  a6
 else
   mac
 fi

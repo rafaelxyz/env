@@ -17,9 +17,11 @@ xterm*charClass: 33:48,36-47:48,59:48,61:48,63-64:48,95:48,126:48
 
 ! paste from CLIPBOARD
 ! copy to CLIPBOARD as well as default PRIMARY
- xterm.VT100.Translations:    #override \n\
-         Shift <KeyPress> Insert:        insert-selection(CLIPBOARD) \n\
-         <Btn1Up>: select-end(PRIMARY, CLIPBOARD, CUT_BUFFER0)
+! xterm.VT100.Translations:    #override \n\
+!         Shift <KeyPress> Insert:        insert-selection(CLIPBOARD) \n\
+!         <Btn1Up>: select-end(PRIMARY, CLIPBOARD, CUT_BUFFER0)
+
+!xterm*selectToClipboard: true
 
 !! default dark
 !*.foreground: #BCBCBC
