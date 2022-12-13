@@ -5,9 +5,6 @@ txtylw='\e[0;33m'; txtblu='\e[0;34m'; txtpur='\e[0;35m'; txtcyn='\e[0;36m';
 # blue, purple, cyan, white, reset
 bakblu='\e[44m'; bakpur='\e[45m'; bakcyn='\e[46m'; bakwht='\e[47m'; txtrst='\e[0m';
 
-#test $0 == /usr/sbin/Check && exit 0
-#echo -e "$txtylw- running bashrc, calling program is: $0$txtrst\n"
-
 parse_git_branch() {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
@@ -15,30 +12,26 @@ parse_git_branch() {
 PS1="\\""[$(tput setaf 7)\\]\[$txtcyn\]$USER@`hostname`:\\w \$(parse_git_branch)$ \\[$(tput sgr0)\\]\[$txtrst\]"
 
 based=`readlink -f $HOME/env`
-confd=$based/conf
-home="/home/erafodz"
 
-test -f $home/tmux_completion.sh && . $home/tmux_completion.sh
-test -f $home/git-completion.bash && . $home/git-completion.bash
-eval "$(register-python-argcomplete pipx)"
+test -f $HOME/tmux_completion.sh && . $HOME/tmux_completion.sh
+test -f $HOME/git-completion.bash && . $HOME/git-completion.bash
 export EDITOR="nvim"
 export SHELL=/bin/bash
 export HISTSIZE=""
 export HISTFILESIZE=""
-alias cc="clear"
 alias ll="ls -lah --color=auto"
 alias ls="ls --color=auto"
-alias info=viminfo
 alias grep="grep --color=auto"
 alias xterm="uxterm -bg black -fg white"
-alias a6="setxkbmap -option ctrl:nocaps;xmodmap $based/dvorak/xmodmap2"
+alias a6="setxkbmap -option ctrl:nocaps;xmodmap $HOME/.Xmodmap"
 alias dk="setxkbmap se -option;"
 alias rm="trash-put"
 alias kx='f() { [ "$1" ] && kubectl config use-context $1 || kubectl config current-context ; } ; f'
 alias kn='f() { [ "$1" ] && kubectl config set-context --current --namespace $1 || kubectl config view --minify | grep namespace | cut -d" " -f6 ; } ; f'
 
-
-# Functions
+parse_git_branch() {
+    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+}
 
 mac() {
   export LC_ALL=en_US.UTF-8
@@ -51,10 +44,6 @@ mac() {
   set PAGER nvim
   eval "$(pyenv init -)"
   [ -f /opt/homebrew/etc/bash_completion ] && . /opt/homebrew/etc/bash_completion
-}
-
-parse_git_branch() {
-    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
 
 ranger-cd() {
@@ -84,11 +73,10 @@ o-docker-clean() {
     docker volume rm $(docker volume ls |awk '{print $2}'|tail -n +2)
 }
 
-man() { /usr/bin/man $* | col -b | vim -c 'set ft=man nomod nolist' -; }
-o-bashrc() { vim -c "e $confd/bashrc"; }
 o-vecka-nu() { echo "1 + `date '+%U'`" | bc; }
 
-mac
-
-# Created by `pipx` on 2022-09-30 11:18:55
-export PATH="$PATH:/Users/rafaelo/.local/bin"
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+  :
+else
+  mac
+fi

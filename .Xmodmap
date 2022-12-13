@@ -1,0 +1,37 @@
+!place this in $HOME/.Xmodmap
+keycode 108 = Mode_switch
+!keycode 90 = 0 XF86Paste
+!keycode 23 = Tab
+keycode 24 = q Q braceleft
+keycode 25 = w W braceright
+keycode 26 = e E bracketleft
+keycode 27 = r R bracketright
+keycode 28 = t T dollar
+keycode 29 = y Y numbersign
+keycode 30 = u U question
+keycode 31 = i I ampersand
+keycode 32 = o O less
+keycode 33 = p P greater
+
+keycode 38 = a A semicolon
+keycode 39 = s S slash
+keycode 40 = d D parenleft
+keycode 41 = f F parenright
+keycode 42 = g G bar
+keycode 43 = h H underscore
+keycode 44 = j J asciicircum
+keycode 45 = k K apostrophe
+keycode 46 = l L quotedbl
+keycode 47 = odiaeresis Odiaeresis asciitilde
+keycode 48 = adiaeresis Adiaeresis minus
+!keycode 49 = section degree
+
+!keycode 51 = numbersign
+keycode 52 = z Z colon
+keycode 53 = x X equal
+keycode 54 = c C at
+keycode 55 = v V exclam
+keycode 56 = b B backslash
+keycode 57 = n N percent
+keycode 58 = m M asterisk
+keycode 61 = minus underscore

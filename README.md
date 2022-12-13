@@ -1,19 +1,26 @@
 # Install
 
-stow .
+  stow .
+  wget https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/DroidSansMono/complete/Droid%20Sans%20Mono%20Nerd%20Font%20Complete.otf
+  git clone https://github.com/alexanderjeurissen/ranger_devicons ~/.config/ranger/plugins/ranger_devicons
 
-# Requirements for macos
-brew install ripgrep tmux pipx code-minimap
 
-# Requirements for Ubuntu
-sudo apt-get install git ranger tmux trash-cli exuberant-ctags -y
+# Requirements
+
+  npm 
+
+## Ubuntu
+
+  sudo apt-get install git ranger tmux trash-cli exuberant-ctags tmux ripgrep -y
 
 
 # Ranger
-git clone https://github.com/ranger/ranger.git && cd ranger/ && sudo make install
+
+  git clone https://github.com/ranger/ranger.git && cd ranger/ && sudo make install
 
 # X
-xrdb ~/.Xresources
+
+  xrdb ~/.Xresources
 
 # Notes
 
