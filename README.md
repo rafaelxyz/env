@@ -11,7 +11,7 @@
 
 ## Ubuntu
 
-  sudo apt-get install git ranger tmux trash-cli exuberant-ctags tmux ripgrep -y
+  sudo apt-get install git ranger tmux trash-cli exuberant-ctags tmux ripgrep xsel -y
 
 
 # Ranger
