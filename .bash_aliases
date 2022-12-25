@@ -49,7 +49,6 @@ mac() {
 ranger-cd() {
     tempfile="$(mktemp -t tmp.XXXXXX)"
     local rngr=ranger
-    test $WSL_DISTRO_NAME && rngr=$based/ranger/ranger.py;
     EDITOR=nvim VISUAL=nvim $rngr --choosedir="$tempfile" "${@:-$(pwd)}"
     test -f "$tempfile" &&
     if [ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]; then
@@ -75,7 +74,9 @@ o-docker-clean() {
 
 o-vecka-nu() { echo "1 + `date '+%U'`" | bc; }
 
-if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+if [[ $WSL_DISTRO_NAME ]]; then
+  echo ">"
+elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
   a6
 else
   mac

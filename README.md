@@ -14,10 +14,6 @@
   sudo apt-get install git ranger tmux trash-cli exuberant-ctags tmux ripgrep xsel -y
 
 
-# Ranger
-
-  git clone https://github.com/ranger/ranger.git && cd ranger/ && sudo make install
-
 # X
 
   xrdb ~/.Xresources
