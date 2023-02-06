@@ -1,6 +1,6 @@
 [user]
-	name = Rafael
-	email = rafaelxyz@gmail.com
+	name = Rafael Odzakow
+	email = rafael.odzakow@trioptima.com
 [alias]
         g = grep --recurse-submodules
         st = status
