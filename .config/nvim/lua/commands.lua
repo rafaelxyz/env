@@ -16,6 +16,17 @@ vim.cmd('command! MakeCTags !ctags -R --exclude=@.ctagsignore .')
 -- Clean up left sidebar
 vim.cmd('command! No set nonumber! | Gitsigns toggle_signs')
 
+-- Clean up left and right sidebar
+function Non()
+  vim.cmd('set nonumber!')
+  vim.cmd('Gitsigns toggle_signs')
+  vim.cmd('LspStop')
+  vim.cmd('MinimapToggle')
+  vim.cmd('silent !SymbolsOutlineClose')
+end
+vim.api.nvim_create_user_command('Non', Non, {})
+
+
 -- Remember last line position
 vim.api.nvim_exec([[ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif ]], false)
 

@@ -6,8 +6,9 @@ require('plugins')
 
 -- PLUGINS
 require('mason').setup()
-require('nvim-tree').setup()
-require("symbols-outline").setup()
+require("symbols-outline").setup({
+    position = 'left',
+})
 require("nvim-tree").setup({
   update_cwd = true,
   update_focused_file = {
