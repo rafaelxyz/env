@@ -18,11 +18,11 @@ vim.cmd('command! No set nonumber! | Gitsigns toggle_signs')
 
 -- Clean up left and right sidebar
 function Non()
-  vim.cmd('set nonumber!')
-  vim.cmd('Gitsigns toggle_signs')
+  vim.cmd('MinimapClose')
+  vim.cmd('silent! SymbolsOutlineClose')
   vim.cmd('LspStop')
-  vim.cmd('MinimapToggle')
-  vim.cmd('silent !SymbolsOutlineClose')
+  vim.cmd('set nonumber!')
+  vim.cmd('Gitsigns detach_all')
 end
 vim.api.nvim_create_user_command('Non', Non, {})
 
