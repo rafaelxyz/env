@@ -34,7 +34,7 @@ return require('packer').startup(function(use)
     'simrat39/symbols-outline.nvim',
     'karb94/neoscroll.nvim',
     'folke/which-key.nvim',
-    'wfxr/minimap.vim'
+    -- 'wfxr/minimap.vim'
   }
 
   use {
