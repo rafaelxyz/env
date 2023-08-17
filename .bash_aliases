@@ -31,8 +31,9 @@ alias xterm="uxterm -bg black -fg white"
 alias a6="setxkbmap se -option ctrl:nocaps;xmodmap $HOME/.Xmodmap"
 alias dk="setxkbmap se -option;"
 alias rm="trash-put"
-alias kx='f() { [ "$1" ] && kubectl config use-context $1 || kubectl config current-context ; } ; f'
-alias kn='f() { [ "$1" ] && kubectl config set-context --current --namespace $1 || kubectl config view --minify | grep namespace | cut -d" " -f6 ; } ; f'
+alias k="kubectl"
+alias k-use-context='f() { [ "$1" ] && kubectl config use-context $1 || kubectl config current-context ; } ; f'
+alias k-set-context='f() { [ "$1" ] && kubectl config set-context --current --namespace $1 || kubectl config view --minify | grep namespace | cut -d" " -f6 ; } ; f'
 
 parse_git_branch() {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
