@@ -3,6 +3,7 @@
 local map = vim.keymap.set
 
 vim.g.mapleader = ' '
+vim.g.ranger_map_keys = 0
 map('n', '<leader><leader>', ':')
 map('n', '§', ':wincmd q<CR>')
 map('n', 'ä', '<C-d>', { remap = true })

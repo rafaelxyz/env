@@ -36,6 +36,7 @@ local mappings = {
   ["c"] = { "<cmd>wincmd c<CR>", "Close window" },
   ["C"] = { "<cmd>Bclose<CR>", "Close buffer" },
   ["q"] = { "<cmd>qa<CR>", "Quit all windows" },
+  ["Q"] = { "<cmd>qa!<CR>", "Force quit all windows" },
   ["m"] = { "<cmd>MinimapToggle<CR>", "Toggle minimap" },
 
   f = {
