@@ -91,7 +91,7 @@ local mappings = {
 
     E = { "<cmd>Telescope lsp_references<CR>", "List symbol uses, Telescope" },
     w = { "<cmd>Telescope diagnostics<cr>", "Workspace Diagnostics" },
-    f = { "<cmd>lua vim.lsp.buf.formatting()<cr>", "Format" },
+    f = { "<cmd>lua vim.lsp.buf.format()<cr>", "Format" },
     g = { "<cmd>lua vim.diagnostic.show()<CR>", "Show Diagnostic" },
     G = { "<cmd>lua vim.diagnostic.hide()<CR>", "Hide Diagnostic" },
     l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },

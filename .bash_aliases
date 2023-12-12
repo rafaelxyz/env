@@ -34,6 +34,7 @@ alias rm="trash-put"
 alias k="kubectl"
 alias k-use-context='f() { [ "$1" ] && kubectl config use-context $1 || kubectl config current-context ; } ; f'
 alias k-set-context='f() { [ "$1" ] && kubectl config set-context --current --namespace $1 || kubectl config view --minify | grep namespace | cut -d" " -f6 ; } ; f'
+alias g=git
 
 rgg() {
   rg --vimgrep "$@" | nvim -q /dev/stdin
