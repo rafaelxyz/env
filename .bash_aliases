@@ -49,7 +49,6 @@ mac() {
   export LANG=en_US.UTF-8
   export PATH=/opt/homebrew/bin:$PATH
   eval "$(pyenv init -)"
-  #[ -f /opt/homebrew/etc/bash_completion ] && . /opt/homebrew/etc/bash_completion
 }
 
 ranger-cd() {
