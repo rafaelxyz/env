@@ -1,5 +1,5 @@
-require('lualine').setup {
-  options = {
-    theme = 'solarized_light',
-  }
+return {
+  "nvim-lualine/lualine.nvim",
+  dependencies = { "nvim-tree/nvim-web-devicons" },
+  options = { theme = "drakula" },
 }
