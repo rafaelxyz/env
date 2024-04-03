@@ -1,4 +1,7 @@
-# Install
+
+# README
+
+## Install
 
     stow .
 
@@ -6,8 +9,7 @@
 
     git clone https://github.com/alexanderjeurissen/ranger_devicons ~/.config/ranger/plugins/ranger_devicons
 
-
-# Requirements
+## Requirements
 
     npm
 
@@ -15,14 +17,12 @@
 
     sudo apt-get install git ranger tmux trash-cli exuberant-ctags tmux ripgrep xsel -y
 
-
-# X
+## X
 
     xrdb ~/.Xresources
 
-# Notes
+## Notes
 
-Text object copy paste, repeat with .
-
+    Text object copy paste, repeat with .
     yiw
     ciw<C-r>0
