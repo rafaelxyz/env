@@ -20,7 +20,7 @@ set PAGER nvim
 test -f $HOME/tmux_completion.sh && . $HOME/tmux_completion.sh
 test -f $HOME/git-completion.bash && . $HOME/git-completion.bash
 export EDITOR="nvim"
-export SHELL=/bin/bash
+#export SHELL=/bin/bash
 export HISTSIZE=""
 export HISTFILESIZE=""
 alias vi="nvim"
