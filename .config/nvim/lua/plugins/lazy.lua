@@ -8,7 +8,7 @@ return {
           -- Warn  = " ",
           -- Info  = " ",
           Hint  = " ",
-          Error = "e",
+          Error = "|",
           Warn  = "!",
           Info  = "i",
         },
