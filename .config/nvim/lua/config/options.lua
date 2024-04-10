@@ -15,3 +15,6 @@ end
 
 opt.relativenumber = false
 opt.clipboard = "unnamed"
+
+-- For diagnostic popup
+opt.updatetime = 250
