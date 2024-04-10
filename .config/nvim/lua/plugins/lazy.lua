@@ -7,13 +7,13 @@ return {
           -- Error = " ",
           -- Warn  = " ",
           -- Info  = " ",
-          -- Hint  = " ",
-          -- Error = "|",
-          -- Warn  = "!",
-          -- Info  = "i",
+          Hint  = " ",
+          Error = "|",
+          Warn  = "!",
+          Info  = "i",
         },
       }
     }
   },
 }
--- { "lukas-reineke/indent-blankline.nvim", enabled = false },
+  -- { "lukas-reineke/indent-blankline.nvim", enabled = false },
