@@ -7,10 +7,10 @@ return {
           -- Error = " ",
           -- Warn  = " ",
           -- Info  = " ",
-          Hint  = " ",
-          Error = "|",
-          Warn  = "!",
-          Info  = "i",
+          -- Hint  = " ",
+          -- Error = "|",
+          -- Warn  = "!",
+          -- Info  = "i",
         },
       }
     }
