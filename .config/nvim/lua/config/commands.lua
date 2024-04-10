@@ -28,5 +28,3 @@ function OpenURIUnderCursor()
   end
 end
 vim.api.nvim_create_user_command("OpenURIUnderCursor", OpenURIUnderCursor, {})
-
-vim.cmd("autocmd TermOpen * setlocal nonumber")
