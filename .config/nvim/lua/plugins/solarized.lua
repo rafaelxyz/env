@@ -1,9 +1,3 @@
--- if os.getenv('WSL_DISTRO_NAME') then
---   BACKGROUND = "dark"
--- else
---   BACKGROUND = "light"
--- end
-
 return {
   'maxmx03/solarized.nvim',
   lazy = false,

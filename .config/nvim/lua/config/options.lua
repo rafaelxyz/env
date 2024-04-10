@@ -8,7 +8,8 @@ local opt = vim.opt
 vim.g.autoformat = false
 
 if os.getenv("WSL_DISTRO_NAME") then
-  opt.background = "dark"
+  -- opt.background = "dark"
+  opt.background = "light"
 else
   opt.background = "light"
 end
