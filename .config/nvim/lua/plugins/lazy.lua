@@ -1,5 +1,4 @@
 return {
-  -- { "lukas-reineke/indent-blankline.nvim", enabled = false },
   {
     "LazyVim/LazyVim",
     opts = {
@@ -17,3 +16,4 @@ return {
     }
   },
 }
+-- { "lukas-reineke/indent-blankline.nvim", enabled = false },
