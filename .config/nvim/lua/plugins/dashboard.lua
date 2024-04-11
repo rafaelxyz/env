@@ -59,4 +59,5 @@ return {
 
     return opts
   end,
+  keys = { { "<leader>D", "<cmd>Dashboard<cr>", desc = "Dashboard" } },
 }
