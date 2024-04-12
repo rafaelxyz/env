@@ -5,19 +5,16 @@
 
     stow .
 
-    wget [NerdFont DroidSansMono](https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/DroidSansMono/complete/Droid%20Sans%20Mono%20Nerd%20Font%20Complete.otf)
+## Kitty term
 
-    git clone https://github.com/alexanderjeurissen/ranger_devicons ~/.config/ranger/plugins/ranger_devicons
+    wget [Fira Code Font](https://github.com/tonsky/FiraCode/releases/download/6.2/Fira_Code_v6.2.zip)
+    wget [Symbols Nerd Font](https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.0/NerdFontsSymbolsOnly.zip)
 
-## Requirements
+## Packages
 
-    npm
+    git ranger tmux trash-cli ripgrep xsel atool
 
-## Ubuntu
-
-    sudo apt-get install git ranger tmux trash-cli exuberant-ctags tmux ripgrep xsel atool -y
-
-## X
+## Xterm
 
     xrdb ~/.Xresources
 

@@ -3,7 +3,6 @@ return {
   lazy = false,
   priority = 1000,
   config = function()
-    -- vim.o.background = BACKGROUND
     vim.cmd.colorscheme 'solarized'
   end,
 }
