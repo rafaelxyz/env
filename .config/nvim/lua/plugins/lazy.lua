@@ -30,7 +30,7 @@ return {
     },
   },
   -- Colorschemes
-  { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+  { "catppuccin/nvim", name = "catppuccin", priority = 1000, lazy = false },
   { "maxmx03/solarized.nvim", priority = 1000, lazy = false },
   {
     "LazyVim/LazyVim",
