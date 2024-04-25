@@ -1,7 +1,7 @@
 return {
   -- { "s1n7ax/nvim-window-picker" },
-  { "lukas-reineke/indent-blankline.nvim", enabled = false },   -- Indentation guides
-  { "folke/flash.nvim", enabled = false },                      -- Text search with labels
+  { "lukas-reineke/indent-blankline.nvim", enabled = false }, -- Indentation guides
+  { "folke/flash.nvim", enabled = false }, -- Text search with labels
   {
     "neovim/nvim-lspconfig",
     opts = {
@@ -30,8 +30,8 @@ return {
     },
   },
   -- Colorschemes
-  { "catppuccin/nvim", name = "catppuccin", priority = 1000, lazy = false },
-  { "maxmx03/solarized.nvim", priority = 1000, lazy = false },
+  { 'ishan9299/nvim-solarized-lua' },
+  -- { "maxmx03/solarized.nvim", priority = 1000, lazy = false }, -- opts = { theme = "neo", palette = "selenized"} },
   {
     "LazyVim/LazyVim",
     opts = {
