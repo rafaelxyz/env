@@ -2,7 +2,6 @@
 -- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
 -- Add any additional options here
 
-
 local opt = vim.opt
 
 vim.g.autoformat = false
@@ -10,6 +9,7 @@ vim.g.autoformat = false
 if os.getenv("WSL_DISTRO_NAME") then
   -- opt.background = "dark"
   opt.background = "light"
+  vim.g.solarized_termtrans = 1
 else
   opt.background = "light"
 end
@@ -19,3 +19,4 @@ opt.clipboard = "unnamed"
 
 -- For diagnostic popup
 opt.updatetime = 250
+
