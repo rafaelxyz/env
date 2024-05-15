@@ -14,9 +14,5 @@ map("n", "<TAB>", ":BufferLineCycleNext<CR>", { desc = "Switch buffers" })
 map("n", "<S-TAB>", ":BufferLineCyclePrev<CR>", { desc = "Switch buffers" })
 map("n", "<C-s>", ":w<CR>", { desc = "Save with Ctrl + s" })
 map("n", "Y", "y$", { desc = "Yank to end of line" })
-
-map("t", "<C-a>", "<c-\\><c-n>", { desc = "Exit terminal mode" })
-map("n", "<C-a>", ":ToggleTerm<CR>", { desc = "Exit terminal mode" })
-
 map("n", "F", ":Telescope grep_string", { desc = "FIND" })
 vim.api.nvim_set_keymap("v", "<c-c>", '"*y :let @+=@*<CR>', { noremap = true, silent = true })
