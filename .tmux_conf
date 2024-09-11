@@ -47,9 +47,11 @@ set -g focus-events on
 set-option -g history-limit 5000
 set-option -sg escape-time 10
 set -s copy-command 'xsel -ib'
-#set -g default-terminal xterm-256color
-#set -g default-terminal "tmux-256color"
-#set -ag terminal-overrides ",xterm-256color:RGB"
+
+if-shell '[ -z $WSLENV ]' {
+} {
+  set -g default-terminal "screen-256color"
+}
 
 # new terminals in cwd
 bind '"' split-window -c "#{pane_current_path}"
