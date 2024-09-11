@@ -3,3 +3,4 @@
 .config/ranger/plugins/__init__.py
 .config/lazygit/config.yml
 .config/lazygit/state.yml
+.config/nvim/lazyvim.json
