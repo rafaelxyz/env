@@ -10,19 +10,14 @@ return {
         underline = false,
         signs = {
           text = {
-            -- [vim.diagnostic.severity.ERROR] = "",
-            -- [vim.diagnostic.severity.WARN] = "",
-            [vim.diagnostic.severity.ERROR] = "-",
+            [vim.diagnostic.severity.ERROR] = "=",
             [vim.diagnostic.severity.WARN] = "-",
           },
         },
       },
-      -- Enable this to enable the builtin LSP inlay hints on Neovim >= 0.10.0
-      -- Be aware that you also will need to properly configure your LSP server to
-      -- provide the inlay hints.
+      -- Builtin LSP inlay hints. (shows types in python)
       inlay_hints = {
         enabled = false,
-        exclude = { "vue" }, -- filetypes for which you don't want to enable inlay hints
       },
     },
   },
