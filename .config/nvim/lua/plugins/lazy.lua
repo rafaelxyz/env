@@ -7,12 +7,13 @@ return {
     opts = {
       diagnostics = {
         virtual_text = false,
-        signs = {
-          text = {
-            [vim.diagnostic.severity.ERROR] = "",
-            [vim.diagnostic.severity.WARN] = "",
-          },
-        },
+        signs = false,
+        -- signs = {
+        --   text = {
+        --     [vim.diagnostic.severity.ERROR] = "",
+        --     [vim.diagnostic.severity.WARN] = "",
+        --   },
+        -- },
       },
     },
   },
