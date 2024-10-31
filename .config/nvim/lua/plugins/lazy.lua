@@ -64,9 +64,9 @@ return {
     opts = {
       color_overrides = {
         latte = {
-          base =   "#fbf6e4",
-          mantle = "#f5f0de",
-          crust =  "#f5f0de",
+          base = "#fdf6e3",
+          mantle = "#f7f1dc",
+          crust = "#f5ecd7",
         },
       },
     },
