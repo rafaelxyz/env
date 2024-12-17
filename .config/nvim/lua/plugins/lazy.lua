@@ -1,8 +1,8 @@
 return {
 
-  -- { "s1n7ax/nvim-window-picker" },
   { "lukas-reineke/indent-blankline.nvim", enabled = false }, -- Indentation guides
   { "folke/flash.nvim", enabled = false }, -- Text search with labels
+  { "junegunn/fzf", build = "./install --bin" },
 
   {
     "neovim/nvim-lspconfig",
@@ -25,20 +25,6 @@ return {
   },
 
   {
-    "nvim-telescope/telescope.nvim",
-    opts = {
-      defaults = {
-        mappings = {
-          i = {
-            ["<S-Down>"] = require("telescope.actions").cycle_history_next,
-            ["<S-Up>"] = require("telescope.actions").cycle_history_prev,
-          },
-        },
-      },
-    },
-  },
-
-  {
     "akinsho/bufferline.nvim",
     opts = {
       options = {
@@ -46,15 +32,6 @@ return {
       }
     }
   },
-
-  -- Colorschemes
-  -- { 'ishan9299/nvim-solarized-lua' },
-  -- {
-  --   "LazyVim/LazyVim",
-  --   opts = {
-  --     colorscheme = "solarized",
-  --   },
-  -- },
 
   {
     "catppuccin/nvim",
@@ -78,5 +55,4 @@ return {
       colorscheme = "catppuccin",
     },
   },
-
 }

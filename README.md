@@ -14,6 +14,10 @@
 
     git ranger tmux trash-cli ripgrep xsel atool
 
+### For FZF
+    brew install
+    fd ripgrep bat git-delta
+
 ## Xterm
 
     xrdb ~/.Xresources
