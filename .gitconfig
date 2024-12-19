@@ -22,5 +22,3 @@
 [delta]
         navigate = true  # use n and N to move between diff sections
         light = true      # or light = true, or omit for auto-detection
-[merge]
-        conflictstyle = zdiff3

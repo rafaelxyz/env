@@ -55,4 +55,24 @@ return {
       colorscheme = "catppuccin",
     },
   },
+
+  {
+    "ibhagwan/fzf-lua",
+    cmd = "FzfLua",
+    opts = function(_, opts)
+    return {
+      "default-title",
+      ui_select = function(fzf_opts, items)
+        return vim.tbl_deep_extend("force", fzf_opts, {
+          winopts = {
+            preview = {
+              scrollbar = false,
+            },
+          },
+        }, fzf_opts.kind == "codeaction" and { winopts = { }, } or { winopts = { },
+        })
+      end,
+      }
+    end,
+  },
 }
