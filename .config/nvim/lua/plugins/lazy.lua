@@ -56,6 +56,7 @@ return {
     },
   },
 
+  -- Bugfix scrollbar on wsl
   {
     "ibhagwan/fzf-lua",
     cmd = "FzfLua",
