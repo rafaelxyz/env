@@ -12,11 +12,7 @@
 
 ## Packages
 
-    git ranger tmux trash-cli ripgrep xsel atool
-
-### For FZF
-    brew install
-    fd ripgrep bat git-delta
+    git ranger tmux trash-cli ripgrep xsel atool git-delta fd ripgrep bat less
 
 ## Xterm
 
