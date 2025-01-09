@@ -12,7 +12,7 @@
 
 ## Packages
 
-    git ranger tmux trash-cli ripgrep xsel atool git-delta fd ripgrep bat less
+    git ranger tmux trash-cli ripgrep xsel atool git-delta fd ripgrep highlight less
 
 ## Xterm
 
