@@ -19,6 +19,10 @@
     fd-find
     dpkg -i <git-delta>
 
+### Ubuntu on Windows
+
+    sudo apt remove highlight
+
 ## Xterm
 
     xrdb ~/.Xresources
