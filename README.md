@@ -12,7 +12,12 @@
 
 ## Packages
 
-    git ranger tmux trash-cli ripgrep xsel atool git-delta fd ripgrep highlight less
+    git ranger tmux trash-cli ripgrep xsel atool ripgrep highlight less git-delta fd
+
+### Ubuntu
+
+    fd-find
+    dpkg -i <git-delta>
 
 ## Xterm
 
