@@ -8,30 +8,30 @@ return {
     "neovim/nvim-lspconfig",
     opts = {
       diagnostics = {
-        virtual_text = false,
-        underline = false,
+        -- virtual_text = false,
+        -- underline = false,
         signs = {
           text = {
-            [vim.diagnostic.severity.ERROR] = "=",
+            [vim.diagnostic.severity.ERROR] = "!",
             [vim.diagnostic.severity.WARN] = "-",
           },
         },
       },
       -- Builtin LSP inlay hints. (shows types in python)
-      inlay_hints = {
-        enabled = false,
-      },
+      -- inlay_hints = {
+      --   enabled = false,
+      -- },
     },
   },
 
-  {
-    "akinsho/bufferline.nvim",
-    opts = {
-      options = {
-         diagnostics = false,
-      }
-    }
-  },
+  -- {
+  --   "akinsho/bufferline.nvim",
+  --   opts = {
+  --     options = {
+  --       diagnostics = false,
+  --     }
+  --   }
+  -- },
 
   {
     "catppuccin/nvim",
