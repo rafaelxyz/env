@@ -23,16 +23,14 @@ return {
       -- },
     },
   },
-
-  -- {
-  --   "akinsho/bufferline.nvim",
-  --   opts = {
-  --     options = {
-  --       diagnostics = false,
-  --     }
-  --   }
-  -- },
-
+  {
+    "neovim/nvim-lspconfig",
+    opts = {
+      diagnostics = {
+        virtual_text = false, -- Disable virtual text
+      },
+    },
+  },
   {
     "catppuccin/nvim",
     lazy = false,
