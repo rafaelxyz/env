@@ -18,19 +18,12 @@ return {
         },
       },
       -- Builtin LSP inlay hints. (shows types in python)
-      -- inlay_hints = {
-      --   enabled = false,
-      -- },
-    },
-  },
-  {
-    "neovim/nvim-lspconfig",
-    opts = {
-      diagnostics = {
-        virtual_text = false, -- Disable virtual text
+      inlay_hints = {
+        enabled = true,
       },
     },
   },
+
   {
     "catppuccin/nvim",
     lazy = false,
