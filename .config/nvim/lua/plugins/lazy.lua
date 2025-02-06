@@ -1,7 +1,5 @@
 return {
 
-  { "lukas-reineke/indent-blankline.nvim", enabled = false }, -- Indentation guides
-  { "folke/flash.nvim", enabled = false }, -- Text search with labels
   { "junegunn/fzf", build = "./install --bin" },
 
   {
