@@ -3,6 +3,18 @@ return {
   { "junegunn/fzf", build = "./install --bin" },
 
   {
+    "akinsho/bufferline.nvim",
+    opts = {
+      options = {
+        diagnostics_indicator = "",
+        indicator = {
+            style = 'underline',
+        },
+      },
+    },
+  },
+
+  {
     "neovim/nvim-lspconfig",
     opts = {
       diagnostics = {
