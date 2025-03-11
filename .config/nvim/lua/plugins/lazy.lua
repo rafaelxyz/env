@@ -6,7 +6,8 @@ return {
     "akinsho/bufferline.nvim",
     opts = {
       options = {
-        diagnostics_indicator = "",
+        buffer_close_icon = 'x',
+        diagnostics = false,
         indicator = {
             style = 'underline',
         },
@@ -59,7 +60,6 @@ return {
 
   {
     "folke/snacks.nvim",
-    ---@type snacks.Config
     opts = {
       dashboard = {
         preset = {
@@ -79,10 +79,10 @@ return {
   {
     "ibhagwan/fzf-lua",
     cmd = "FzfLua",
-    opts = function(_, opts)
+    opts = function(_, _)
     return {
       "default-title",
-      ui_select = function(fzf_opts, items)
+      ui_select = function(fzf_opts, _)
         return vim.tbl_deep_extend("force", fzf_opts, {
           winopts = {
             preview = {
