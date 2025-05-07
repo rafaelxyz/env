@@ -21,5 +21,3 @@ opt.clipboard = "unnamed"
 -- vim.g.lazyvim_python_lsp = "basedpyright"
 vim.g.lazyvim_python_lsp = "pyright"
 vim.g.lazyvim_python_ruff = "ruff"
-
--- vim.g.fzf_history_dir = "~/.local/share/fzf-history/"

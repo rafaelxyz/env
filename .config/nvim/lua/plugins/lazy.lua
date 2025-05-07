@@ -1,7 +1,5 @@
 return {
 
-  { "junegunn/fzf", build = "./install --bin" },
-
   {
     "akinsho/bufferline.nvim",
     opts = {
@@ -73,26 +71,5 @@ return {
         }
       }
     }
-  },
-
-  -- Bugfix scrollbar on wsl
-  {
-    "ibhagwan/fzf-lua",
-    cmd = "FzfLua",
-    opts = function(_, _)
-    return {
-      "default-title",
-      ui_select = function(fzf_opts, _)
-        return vim.tbl_deep_extend("force", fzf_opts, {
-          winopts = {
-            preview = {
-              scrollbar = false,
-            },
-          },
-        }, fzf_opts.kind == "codeaction" and { winopts = { }, } or { winopts = { },
-        })
-      end,
-      }
-    end,
   },
 }
