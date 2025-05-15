@@ -14,7 +14,7 @@ map("n", "<TAB>", ":BufferLineCycleNext<CR>", { desc = "Switch buffers" })
 map("n", "<S-TAB>", ":BufferLineCyclePrev<CR>", { desc = "Switch buffers" })
 map("n", "<C-s>", ":w<CR>", { desc = "Save with Ctrl + s" })
 map("n", "Y", "y$", { desc = "Yank to end of line" })
-map("n", "F", ":FzfLua grep_cword<CR>", { desc = "FIND" })
+map("n", "F", LazyVim.pick("grep_word"), { desc = "Visual selection or word (Root Dir)" })
 vim.api.nvim_set_keymap("v", "<c-c>", '"*y :let @+=@*<CR>', { noremap = true, silent = true })
 -- Move selected lines with shift+j or shift+k
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
