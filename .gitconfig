@@ -1,24 +1,26 @@
 [user]
-	name = Rafael Odzakow
-	email = rafael.odzakow@trioptima.com
+  name = Rafael Odzakow
+  email = rafael.odzakow@trioptima.com
 [alias]
-        g = grep --recurse-submodules
-        st = status
-        co = checkout
-        ci = commit
-        br = branch
-        di = difftool
-        suup = "submodule update --remote --merge --init"
-        subupd = submodule update --recursive --init
-        tree = log --oneline --decorate --all --graph --pretty=format:'%Cred%h%Creset %s -%C(yellow)%d%Creset %Cgreen(%cr)'
-        plog = log --pretty=format:'%Cred%h%Creset %s -%C(yellow)%d%Creset %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-        lol = log --graph --decorate --pretty=oneline --abbrev-commit
+  g = grep --recurse-submodules
+  st = status
+  co = checkout
+  ci = commit
+  br = branch
+  di = difftool
+  suup = "submodule update --remote --merge --init"
+  subupd = submodule update --recursive --init
+  tree = log --oneline --decorate --all --graph --pretty=format:'%Cred%h%Creset %s -%C(yellow)%d%Creset %Cgreen(%cr)'
+  plog = log --pretty=format:'%Cred%h%Creset %s -%C(yellow)%d%Creset %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+  lol = log --graph --decorate --pretty=oneline --abbrev-commit
 [credential]
-        helper = store
+  helper = store
 [core]
-        pager = delta
+  pager = delta
 [interactive]
-        diffFilter = delta --color-only
+  diffFilter = delta --color-only
 [delta]
-        navigate = true  # use n and N to move between diff sections
-        light = true      # or light = true, or omit for auto-detection
+  navigate = true  # use n and N to move between diff sections
+  light = true      # or light = true, or omit for auto-detection
+[merge]
+  conflictstyle = zdiff3
