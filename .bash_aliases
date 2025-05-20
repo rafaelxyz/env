@@ -10,9 +10,7 @@ PS1="\\""[$(tput setaf 7)\\]\[$txtcyn\]$USER@$(hostname):\\w \$(parse_git_branch
 set -o vi
 export EDITOR=nvim
 export VISUAL=nvim
-export PAGER=nvim
-
-export EDITOR="nvim"
+export PAGER=less
 export HISTSIZE=""
 export HISTFILESIZE=""
 alias vi="nvim"
