@@ -35,18 +35,17 @@ mac() {
   eval "$(pyenv init -)"
 }
 
-ranger-cd() {
-    tempfile="$(mktemp -t tmp.XXXXXX)"
-    local rngr=ranger
-    EDITOR=nvim VISUAL=nvim $rngr --choosedir="$tempfile" "${@:-$(pwd)}"
-    test -f "$tempfile" &&
-    if [ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]; then
-        cd -- "$(cat "$tempfile")"
+ranger_cd() {
+    temp_file="$(mktemp -t "ranger_cd.XXXXXXXXXX")"
+    ranger --choosedir="$temp_file" -- "${@:-$PWD}"
+    if chosen_dir="$(cat -- "$temp_file")" && [ -n "$chosen_dir" ] && [ "$chosen_dir" != "$PWD" ]; then
+        cd -- "$chosen_dir"
     fi
-    rm -f -- "$tempfile"
+    rm -f -- "$temp_file"
 }
 
-bind -x '"\C-o": ranger-cd;'
+# This binds Ctrl-O to ranger_cd:
+bind '"\C-o":"ranger_cd\C-m"'
 
 o-color-print() {
     # for use in tmux
