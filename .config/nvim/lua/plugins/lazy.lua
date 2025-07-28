@@ -60,8 +60,16 @@ return {
     "folke/snacks.nvim",
     opts = {
       picker = {
-        hidden = true,
+        win = {
+            input = {
+              keys = {
+                ["<C-h>"] = { "toggle_hidden", mode = { "i", "n" } },
+            }
+          }
+        },
+        -- hidden = true,
       },
+
       dashboard = {
         preset = {
           header = [[
@@ -72,18 +80,8 @@ return {
 ▓▓  ▓▓ ▓▓  ▓▓  ▓▓  ▓▓ ▓▓  ▓▓  ▓▓ 
 ██   ████   ████   ██ ██      ██ ]],
         }
-      }
+      },
     }
   },
 
-  {
-    "folke/snacks.nvim",
-    opts = {
-      picker = {
-        hidden = true, -- for hidden files
-        ignored = true, -- for .gitignore files
-        sources = { files = { hidden = true } }
-      },
-    },
-  },
 }
