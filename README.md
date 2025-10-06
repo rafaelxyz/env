@@ -13,7 +13,7 @@
 
 ## Packages
 
-    git ranger tmux trash-cli ripgrep xsel atool ripgrep highlight less git-delta fd pillow
+    git ranger tmux trash-cli ripgrep xsel atool ripgrep highlight less git-delta fd pillow tree-sitter-cli
 
 ### Ubuntu
 
