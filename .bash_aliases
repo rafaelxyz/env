@@ -62,7 +62,7 @@ o-docker-clean() {
 
 o-vecka-nu() { echo "1 + `date '+%U'`" | bc; }
 
-if [[ $WSL_DISTRO_NAME ]]; then
+if [[ ${WSL_DISTRO_NAME+x} ]]; then
   echo ">"
 elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
   a6
