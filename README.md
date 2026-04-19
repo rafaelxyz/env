@@ -8,17 +8,13 @@
 
 ## Kitty term
 
+    - Extract and run the font file to install
     wget [Fira Code Font](https://github.com/tonsky/FiraCode/releases/download/6.2/Fira_Code_v6.2.zip)
     wget [Symbols Nerd Font](https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.0/NerdFontsSymbolsOnly.zip)
 
 ## Packages
 
-    git ranger tmux trash-cli ripgrep xsel atool ripgrep highlight less git-delta fd pillow
-
-### Ubuntu
-
-    fd-find
-    dpkg -i <git-delta>
+    stow git ranger tmux trash-cli ripgrep xsel atool highlight less git-delta fd-find/fd
 
 ### Ubuntu on Windows
 
