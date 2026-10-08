@@ -1,0 +1,19 @@
+// Place your key bindings in this file to override the defaults
+[
+    {
+      "key": "[Semicolon]",
+      "command": "vscode-neovim.escape",
+      "when": "editorTextFocus && neovim.init && neovim.mode == insert"
+    },
+    {
+      "key": "ctrl+c",
+      "command": "vscode-neovim.send",
+      "args": "y",
+      "when": "editorTextFocus && neovim.init && neovim.mode == visual"
+    },
+    {
+      "key": "alt+cmd+s",
+      "command": "workbench.action.toggleUnifiedSidebarFromKeyboard",
+      "when": "!isAuxiliaryWindowFocusedContext"
+    }
+  ]

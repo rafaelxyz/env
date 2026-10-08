@@ -1,0 +1,190 @@
+{
+  "title": "Tab Numpad Layer",
+  "rules": [
+    {
+      "description": "Hold Tab for numpad layer; tap Tab for Tab",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "tab"
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "numpad_layer",
+                "value": true,
+                "key_up_value": false
+              }
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "tab"
+            }
+          ]
+        },
+
+        {
+          "type": "basic",
+          "from": { "key_code": "u" },
+          "to": [{ "key_code": "7" }],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "numpad_layer",
+              "value": true
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": { "key_code": "i" },
+          "to": [{ "key_code": "8" }],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "numpad_layer",
+              "value": true
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": { "key_code": "o" },
+          "to": [{ "key_code": "9" }],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "numpad_layer",
+              "value": true
+            }
+          ]
+        },
+
+        {
+          "type": "basic",
+          "from": { "key_code": "j" },
+          "to": [{ "key_code": "4" }],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "numpad_layer",
+              "value": true
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": { "key_code": "k" },
+          "to": [{ "key_code": "5" }],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "numpad_layer",
+              "value": true
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": { "key_code": "l" },
+          "to": [{ "key_code": "6" }],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "numpad_layer",
+              "value": true
+            }
+          ]
+        },
+
+        {
+          "type": "basic",
+          "from": { "key_code": "m" },
+          "to": [{ "key_code": "1" }],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "numpad_layer",
+              "value": true
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": { "key_code": "comma" },
+          "to": [{ "key_code": "2" }],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "numpad_layer",
+              "value": true
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": { "key_code": "period" },
+          "to": [{ "key_code": "3" }],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "numpad_layer",
+              "value": true
+            }
+          ]
+        },
+
+        {
+          "type": "basic",
+          "from": { "key_code": "spacebar" },
+          "to": [{ "key_code": "0" }],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "numpad_layer",
+              "value": true
+            }
+          ]
+        },
+
+        {
+          "type": "basic",
+          "from": { "key_code": "y" },
+          "to": [
+            {
+              "key_code": "7",
+              "modifiers": ["left_shift"]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "numpad_layer",
+              "value": true
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": { "key_code": "h" },
+          "to": [
+            {
+              "key_code": "backslash",
+              "modifiers": ["left_shift"]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "numpad_layer",
+              "value": true
+            }
+          ]
+        }
+
+      ]
+    }
+  ]
+}
