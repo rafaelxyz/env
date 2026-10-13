@@ -44,9 +44,4 @@ return {
       },
     },
   },
-
-  {
-    "folke/snacks.nvim",
-  },
-
 }

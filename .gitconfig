@@ -1,5 +1,7 @@
 [user]
 	signingkey = /Users/rafal/.ssh/github_signing.pub
+	email = rafaelxyz@gmail.com
+	name = Rafael
 [alias]
   g = grep --recurse-submodules
   st = status

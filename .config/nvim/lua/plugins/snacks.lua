@@ -16,10 +16,22 @@ return {
       picker = {
         sources = {
           files = {
-            hidden = true,
+             win = {
+              input = {
+                keys = {
+                  ["<C-h>"] = "toggle_hidden",
+                },
+              },
+            },
           },
           grep = {
-            hidden = true,
+             win = {
+              input = {
+                keys = {
+                  ["<C-h>"] = "toggle_hidden",
+                },
+              },
+            },
           },
         },
       },
