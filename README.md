@@ -4,6 +4,14 @@
 
 ## Install
 
+    git clone --recurse-submodules https://github.com/rafaelxyz/env.git
+
+### or
+
+    git submodule update --init --recursive
+
+    ~/.tmux/plugins/tpm/bin/install_plugins
+
     stow .
 
 ## Kitty term
