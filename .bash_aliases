@@ -13,6 +13,7 @@ export VISUAL=nvim
 export PAGER=less
 export HISTSIZE=""
 export HISTFILESIZE=""
+export LG_CONFIG_FILE="${HOME}/.config/lazygit/config.yml"
 alias vi="nvim"
 alias ll="ls -lah --color=auto"
 alias ls="ls --color=auto"

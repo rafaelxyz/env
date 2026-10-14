@@ -22,7 +22,7 @@
 
 ## Packages
 
-    stow git ranger tmux trash-cli ripgrep xsel atool highlight less git-delta fzf (fd-find/fd)?
+    stow git ranger tmux trash-cli ripgrep xsel atool highlight less git-delta fzf lazygit (fd-find/fd)?
 
 ### Ubuntu on Windows
 
