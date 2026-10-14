@@ -82,46 +82,61 @@ class fd_search(Command):
 
         self.SEARCH_RESULTS.clear()
 
-        if 'fdfind' in get_executables():
-            fd = 'fdfind'
-        elif 'fd' in get_executables():
-            fd = 'fd'
+        executables = get_executables()
+        if 'fdfind' in executables:
+            executable = 'fdfind'
+        elif 'fd' in executables:
+            executable = 'fd'
         else:
             self.fm.notify("Couldn't find fd in the PATH.", bad=True)
             return
 
-        if self.arg(1):
-            if self.arg(1)[:2] == '-d':
-                depth = self.arg(1)
-                target = self.rest(2)
-            else:
-                depth = '-d1'
-                target = self.rest(1)
-        else:
+        if not self.arg(1):
             self.fm.notify(":fd_search needs a query.", bad=True)
             return
 
-        hidden = ('--hidden' if self.fm.settings.show_hidden else '')
-        exclude = "--no-ignore-vcs --exclude '.git' --exclude '*.py[co]' --exclude '__pycache__'"
-        command = '{} --follow {} {} {} --print0 {}'.format(
-            fd, depth, hidden, exclude, target
-        )
-        fd = self.fm.execute_command(command, universal_newlines=True, stdout=subprocess.PIPE)
-        stdout, _ = fd.communicate()
+        depth = '-d1'
+        if self.arg(1).startswith('-d'):
+            depth = self.arg(1)
+            if not re.fullmatch(r'-d[0-9]+', depth):
+                self.fm.notify("Invalid depth; use -d<number>.", bad=True)
+                return
+            target = self.rest(2)
+        else:
+            target = self.rest(1)
 
-        if fd.returncode == 0:
-            results = filter(None, stdout.split('\0'))
-            if not self.fm.settings.show_hidden and self.fm.settings.hidden_filter:
-                hidden_filter = re.compile(self.fm.settings.hidden_filter)
-                results = filter(lambda res: not hidden_filter.search(os.path.basename(res)), results)
-            results = map(lambda res: os.path.abspath(os.path.join(self.fm.thisdir.path, res)), results)
-            self.SEARCH_RESULTS.extend(sorted(results, key=str.lower))
-            if len(self.SEARCH_RESULTS) > 0:
-                self.fm.notify('Found {} result{}.'.format(len(self.SEARCH_RESULTS),
-                                                           ('s' if len(self.SEARCH_RESULTS) > 1 else '')))
-                self.fm.select_file(self.SEARCH_RESULTS[0])
-            else:
-                self.fm.notify('No results found.')
+        if not target:
+            self.fm.notify(":fd_search needs a query.", bad=True)
+            return
+
+        args = [executable, '--follow', depth, '--no-ignore-vcs',
+                '--exclude', '.git', '--exclude', '*.py[co]',
+                '--exclude', '__pycache__', '--print0']
+        if self.fm.settings.show_hidden:
+            args.append('--hidden')
+        # `--` prevents a query beginning with '-' from becoming an fd option.
+        args.extend(['--', target])
+
+        # No shell: spaces and shell metacharacters are search text, not code.
+        result = subprocess.run(args, cwd=self.fm.thisdir.path,
+                                stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+                                universal_newlines=True)
+        if result.returncode != 0:
+            self.fm.notify(result.stderr.strip() or 'fd search failed.', bad=True)
+            return
+
+        results = filter(None, result.stdout.split('\0'))
+        if not self.fm.settings.show_hidden and self.fm.settings.hidden_filter:
+            hidden_filter = re.compile(self.fm.settings.hidden_filter)
+            results = filter(lambda res: not hidden_filter.search(os.path.basename(res)), results)
+        results = map(lambda res: os.path.abspath(os.path.join(self.fm.thisdir.path, res)), results)
+        self.SEARCH_RESULTS.extend(sorted(results, key=str.lower))
+        if self.SEARCH_RESULTS:
+            count = len(self.SEARCH_RESULTS)
+            self.fm.notify('Found {} result{}.'.format(count, 's' if count != 1 else ''))
+            self.fm.select_file(self.SEARCH_RESULTS[0])
+        else:
+            self.fm.notify('No results found.')
 
 class fd_next(Command):
     """

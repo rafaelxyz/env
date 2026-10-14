@@ -1,30 +1,30 @@
--- Open URI
+-- Open a URL (or owner/repo GitHub shorthand) under the cursor without a shell.
+local function open_uri(uri)
+  if not uri or uri == "" then
+    return false
+  end
+
+  local _, err = vim.ui.open(uri)
+  if err then
+    vim.notify("Unable to open " .. uri .. ": " .. tostring(err), vim.log.levels.ERROR)
+  end
+  return true
+end
+
 function OpenURIUnderCursor()
-  local function open_uri(uri)
-    if type(uri) ~= "nil" then
-      uri = string.gsub(uri, "#", "\\#") --double escapes any # signs
-      uri = '"' .. uri .. '"'
-      vim.cmd("!open " .. uri .. " > /dev/null")
-      vim.cmd("mode")
-      print(uri)
-      return true
-    else
-      return false
-    end
-  end
+  local word = vim.fn.expand("<cWORD>")
 
-  local word_under_cursor = vim.fn.expand("<cWORD>")
-
-  -- any uri with a protocol segment
-  local regex_protocol_uri = "%a*:%/%/[%a%d%#%[%]%-%%+:;!$@/?&=_.,~*()]*"
-  if open_uri(string.match(word_under_cursor, regex_protocol_uri)) then
+  -- Accept a full URL, including query strings and anchors.
+  local uri = word:match("[%a][%w+%.%-]*://[^%s<>\"']+")
+  if open_uri(uri) then
     return
   end
 
-  -- consider anything that looks like string/string a github link
-  local regex_plugin_url = "[%a%d%-%.%_]*%/[%a%d%-%.%_]*"
-  if open_uri("https://github.com/" .. string.match(word_under_cursor, regex_plugin_url)) then
-    return
+  -- Also accept GitHub shorthand: owner/repository.
+  local owner, repo = word:match("^([%w_.%-]+)/([%w_.%-]+)")
+  if owner and repo then
+    open_uri("https://github.com/" .. owner .. "/" .. repo)
   end
 end
+
 vim.api.nvim_create_user_command("OpenURIUnderCursor", OpenURIUnderCursor, {})

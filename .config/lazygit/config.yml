@@ -9,7 +9,7 @@ gui:
 git:
   diffRenderers:
     - colorArg: always
-      command: delta --{{colorScheme}} --paging=never
+      command: delta --paging=never
   commit:
     signOff: false
 keybinding:

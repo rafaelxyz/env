@@ -28,3 +28,9 @@ gui:
 
   authorColors:
     '*': '#7287fd'
+
+# Loaded by ~/.bashrc when the macOS appearance is light.
+git:
+  diffRenderers:
+    - colorArg: always
+      command: delta --light --paging=never

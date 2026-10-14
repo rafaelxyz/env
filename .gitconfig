@@ -15,7 +15,7 @@
   plog = log --pretty=format:'%Cred%h%Creset %s -%C(yellow)%d%Creset %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
   lol = log --graph --decorate --pretty=oneline --abbrev-commit
 [credential]
-  helper = store
+  helper = osxkeychain
 [core]
   pager = delta
 [interactive]
@@ -30,3 +30,7 @@
 	gpgsign = true
 [gpg "ssh"]
 	allowedSignersFile = /Users/rafal/.config/git/allowed_signers
+
+# Machine-specific overrides, intentionally kept outside this repository.
+[include]
+  path = ~/.gitconfig.local

@@ -15,7 +15,7 @@ else
 end
 
 opt.relativenumber = false
-opt.clipboard = "unnamed"
+opt.clipboard = "unnamedplus"
 
 -- Set to "basedpyright" or "pyright".
 -- vim.g.lazyvim_python_lsp = "basedpyright"

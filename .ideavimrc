@@ -5,18 +5,14 @@ if has('ide')
   " mappings and options that exist only in IdeaVim
   map <leader>f <Action>(GotoFile)
   map <leader>g <Action>(FindInPath)
-  map <leader>b <Action>(Switcher)
+  map <leader><Tab> <Action>(Switcher)
   nmap <leader><leader> ':'
   nmap ä <C-d>
   nmap å <C-u>
   nmap ö :w<CR>
   vmap ö <ESC>
   imap ö <ESC>
-  nmap Y 'y$'
-
-  map <leader>f <Action>(GotoFile)
-  map <leader>g <Action>(FindInPath)
-  map <leader>b <Action>(Switcher)
+  nmap Y y$
 
   map <leader>d <Action>(Debug)
   map <leader>r <Action>(RenameElement)
@@ -32,7 +28,7 @@ if has('ide')
   map <leader>o <Action>(FileStructurePopup)
 
   set commentary
-  set surrond
+  set surround
   set showmode
   set ideajoin
 

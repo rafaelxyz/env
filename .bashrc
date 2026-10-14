@@ -12,7 +12,7 @@ export PATH
 
 # Only one pyenv initialization. Explicit 'bash' skips shell detection.
 if command -v pyenv >/dev/null 2>&1; then
-    eval "$(pyenv init - bash)"
+    eval "$(pyenv init --no-rehash - bash)"
 fi
 
 case $OSTYPE in

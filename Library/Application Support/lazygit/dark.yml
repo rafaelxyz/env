@@ -28,3 +28,9 @@ gui:
 
   authorColors:
     '*': '#babbf1'
+
+# Loaded by ~/.bashrc when the macOS appearance is dark.
+git:
+  diffRenderers:
+    - colorArg: always
+      command: delta --dark --paging=never

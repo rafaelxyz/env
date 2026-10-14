@@ -8,6 +8,10 @@ export HISTFILESIZE=100000
 
 # Avoiding loss across concurrent tmux panes.
 shopt -s histappend
+# Persist commands after each prompt, including in long-running tmux panes.
+if [[ ";${PROMPT_COMMAND:-};" != *";history -a;"* ]]; then
+    PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND; }history -a"
+fi
 
 # Ignore consecutive duplicates and commands starting with a space
 export HISTCONTROL=ignoreboth
@@ -50,7 +54,7 @@ ranger_cd() {
     temp_file=$(mktemp "${TMPDIR:-/tmp}/ranger_cd.XXXXXXXXXX") || return 1
 
     if command ranger --choosedir="$temp_file" -- "${@:-$PWD}"; then
-        if IFS= read -r chosen_dir < "$temp_file"; then
+        if IFS= read -r chosen_dir < "$temp_file" || [[ -n "$chosen_dir" ]]; then
             if [[ -n $chosen_dir && $chosen_dir != "$PWD" ]]; then
                 builtin cd -- "$chosen_dir"
             fi

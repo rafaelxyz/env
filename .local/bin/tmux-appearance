@@ -1,0 +1,52 @@
+#!/bin/sh
+# Apply Catppuccin Frappé in dark mode and Latte in light mode to a running tmux.
+# dark-notify supplies "dark" or "light"; without arguments, query macOS.
+set -eu
+
+# launchd uses a minimal PATH that usually excludes Homebrew.
+PATH="/opt/homebrew/bin:/usr/local/bin:$PATH"
+export PATH
+
+[ "$(uname -s)" = Darwin ] || exit 0
+
+case ${1:-} in
+    dark|Dark) flavor=frappe ;;
+    light|Light) flavor=latte ;;
+    '')
+        if [ "$(defaults read -g AppleInterfaceStyle 2>/dev/null || true)" = Dark ]; then
+            flavor=frappe
+        else
+            flavor=latte
+        fi
+        ;;
+    *) printf 'tmux-appearance: unexpected mode: %s\n' "$1" >&2; exit 2 ;;
+esac
+
+command -v tmux >/dev/null 2>&1 || exit 0
+# A launch agent starts before tmux on login. Never start a tmux server here.
+tmux has-session 2>/dev/null || exit 0
+
+plugin="$HOME/.tmux/plugins/tmux/catppuccin.tmux"
+if [ ! -f "$plugin" ]; then
+    # Fallback for a manual Catppuccin installation.
+    plugin="$HOME/.config/tmux/plugins/catppuccin/tmux/catppuccin.tmux"
+fi
+if [ ! -f "$plugin" ]; then
+    printf 'tmux-appearance: Catppuccin tmux plugin not installed. Run TPM prefix+I.\n' >&2
+    exit 1
+fi
+
+tmux set-option -g @catppuccin_flavor "$flavor"
+# Instruct Catppuccin to clear cached theme colors before reloading.
+tmux set-option -g @catppuccin_reset true
+tmux run-shell "$plugin"
+# Catppuccin reset clears the window style too. Restore the rounded style and
+# reload once more so it is applied to the status line, not just configured.
+tmux set-option -g @catppuccin_window_status_style rounded
+tmux run-shell "$plugin"
+
+# Refresh the status bar for every attached client, not only the invoking one.
+tmux list-clients -F '#{client_tty}' 2>/dev/null | while IFS= read -r client; do
+    [ -n "$client" ] || continue
+    tmux refresh-client -S -t "$client" >/dev/null 2>&1 || :
+done
