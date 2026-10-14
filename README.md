@@ -24,6 +24,8 @@
 
     stow git ranger tmux trash-cli ripgrep xsel atool highlight less git-delta fzf lazygit (fd-find/fd)?
 
+    brew install bash-completion@2
+
 ### Ubuntu on Windows
 
     sudo apt remove highlight

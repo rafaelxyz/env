@@ -1,27 +1,25 @@
-# The following lines were added by Docker Desktop to add commands to your PATH.
-export PATH="$PATH:/Users/rafal/.docker/bin"
-# End of Docker Desktop section.
+# Docker Desktop
+export PATH="$PATH:$HOME/.docker/bin"
 
-if [ -f ~/.bashrc ]; then
-    . ~/.bashrc
+# Homebrew (macOS)
+if [[ "$OSTYPE" == darwin* ]]; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+
+    export PATH="/opt/homebrew/opt/trash-cli/bin:$PATH"
+    export PATH="/opt/homebrew/opt/node@20/bin:$PATH"
 fi
-if [[ "$(uname -s)" == "Darwin" ]]; then
-  eval "$(/opt/homebrew/bin/brew shellenv)"
-  export PATH="/opt/homebrew/opt/trash-cli/bin:$PATH"
-  export PATH="/opt/homebrew/opt/node@20/bin:$PATH"
 
-  if type brew &>/dev/null
-  then
-    HOMEBREW_PREFIX="$(brew --prefix)"
-    if [[ -r "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh" ]]
-    then
-      source "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh"
-    else
-      for COMPLETION in "${HOMEBREW_PREFIX}/etc/bash_completion.d/"*
-      do
-        [[ -r "${COMPLETION}" ]] && source "${COMPLETION}"
-      done
+# Interactive shell configuration
+if [[ -f "$HOME/.bashrc" ]]; then
+    source "$HOME/.bashrc"
+fi
+
+# Bash completion
+if [[ "$-" == *i* && "$OSTYPE" == darwin* ]]; then
+    # Skip duplicate GDAL/OGR completion scripts, but retain 'gdal'
+    export BASH_COMPLETION_COMPAT_IGNORE='@(gdal?*|ogr*|sozip)'
+
+    if [[ -r /opt/homebrew/etc/profile.d/bash_completion.sh ]]; then
+        source /opt/homebrew/etc/profile.d/bash_completion.sh
     fi
-  fi
 fi
-
