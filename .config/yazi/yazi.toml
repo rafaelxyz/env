@@ -1,0 +1,9 @@
+# Keep the preview pane wide for native Kitty image previews.
+[mgr]
+ratio = [1, 3, 4]
+show_hidden = false
+sort_dir_first = true
+
+[preview]
+image_filter = "lanczos3"
+image_quality = 85

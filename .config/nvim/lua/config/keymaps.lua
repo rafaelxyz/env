@@ -3,7 +3,6 @@
 -- Add any additional keymaps here
 local map = vim.keymap.set
 
-vim.g.ranger_map_keys = 0
 map("n", "§", ":wincmd q<CR>")
 map("n", "ä", "<C-d>", { remap = true })
 map("n", "å", "<C-u>", { remap = true })

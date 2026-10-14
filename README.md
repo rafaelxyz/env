@@ -29,7 +29,7 @@ After Stow has linked `~/.tmux/plugins/tpm`, install the tmux plugins with:
 ## macOS dependencies
 
 ```sh
-brew install stow git tmux bash-completion@2 pyenv ranger ripgrep fd fzf lazygit git-delta trash-cli
+brew install stow git tmux bash-completion@2 pyenv yazi ripgrep fd fzf lazygit git-delta trash-cli
 ```
 
 For Kitty and Neovim install your preferred build, and install Fira Code and Symbols Nerd Font if using
@@ -64,6 +64,28 @@ git config --show-origin --get-all credential.helper
 The Git SSH signing key and allowed-signers paths currently reference `/Users/rafal`; adjust these on
 another computer before enabling signing there.
 
+### Yazi (replacement for Ranger)
+
+Yazi is configured in `.config/yazi/` and uses Kitty graphics for image previews in
+modern Kitty + tmux sessions. In tmux, `allow-passthrough` and the `TERM` / `TERM_PROGRAM`
+updates are enabled. Start a **new tmux session** after applying those settings (do not
+kill a running tmux server that has sessions you want to keep).
+
+- `y` launches Yazi and changes the shell's working directory when you quit with `q`.
+- `Q` quits without changing the shell's directory; `yazi` alone also skips the wrapper.
+- `Ctrl+O` opens Yazi in Bash or tmux; the tmux binding passes Ctrl+O to Neovim.
+- In LazyVim, `<leader>r` opens Yazi in the working directory; `<leader>R` starts at the current file.
+- `F` runs an `fd` search limited to depth 5, `<F8>` / `<Delete>` move files to Trash.
+- Yazi defaults provide `s` for name search, `S` for content search, `.` to toggle hidden
+  files, `d` to trash, `D` to permanently delete, `q` to quit and `F1` to show help.
+
+**Note:** `yazi.nvim` runs inside Neovim's embedded terminal, which may not support pixel
+image previews. For image browsing, use standalone `y` in your Kitty/tmux pane.
+
+The old `.config/ranger/` files and Ranger icon submodule remain in the repository
+as a rollback option; they are no longer loaded by Bash, tmux or Neovim. Once you're
+happy with Yazi, you can remove the Ranger configuration and submodule separately.
+
 ### Bash history
 
 Bash keeps 50,000 entries in a session, up to 100,000 on disk, and writes new history after each
@@ -79,7 +101,7 @@ theme overlays select `delta --dark` / `delta --light` without `{{colorScheme}}`
 
 ## Linux
 
-Install equivalents of `stow`, `tmux`, `xsel` (for X11 clipboard), `ranger`, `fd-find`, `ripgrep`,
+Install equivalents of `stow`, `tmux`, `xsel` (for X11 clipboard), `yazi`, `fd-find`, `ripgrep`,
 `fzf`, `lazygit`, and `git-delta` with your distribution's package manager. Linux keyboard remapping
 is deliberately not run on every shell startup; use the appropriate graphical-session startup.
 

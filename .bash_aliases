@@ -49,23 +49,28 @@ rgg() {
     rg --vimgrep "$@" | nvim -q /dev/stdin
 }
 
-ranger_cd() {
-    local temp_file chosen_dir
-    temp_file=$(mktemp "${TMPDIR:-/tmp}/ranger_cd.XXXXXXXXXX") || return 1
+# Yazi shell wrapper: keep the directory visited in Yazi when it exits with 'q'.
+# Yazi writes a NUL-terminated directory path; 'Q' skips writing the path.
+y() {
+    local tmp cwd status
+    tmp=$(mktemp "${TMPDIR:-/tmp}/yazi-cwd.XXXXXXXXXX") || return 1
 
-    if command ranger --choosedir="$temp_file" -- "${@:-$PWD}"; then
-        if IFS= read -r chosen_dir < "$temp_file" || [[ -n "$chosen_dir" ]]; then
-            if [[ -n $chosen_dir && $chosen_dir != "$PWD" ]]; then
-                builtin cd -- "$chosen_dir"
-            fi
+    command yazi "$@" --cwd-file="$tmp"
+    status=$?
+
+    # Using -d '' handles Yazi's NUL delimiter; the fallback also handles EOF.
+    if IFS= read -r -d '' cwd < "$tmp" || [[ -n $cwd ]]; then
+        if [[ -n $cwd && -d $cwd && $cwd != "$PWD" ]]; then
+            builtin cd -- "$cwd"
         fi
     fi
-    # Never allow alias rm=trash-put to trash an internal temp file.
-    command rm -f -- "$temp_file"
+    # Bypass the interactive rm=trash-put alias.
+    command rm -f -- "$tmp"
+    return "$status"
 }
 
-# Ctrl+O opens ranger and returns to its chosen directory.
-bind '"\C-o":"ranger_cd\C-m"'
+# Ctrl+O opens Yazi and returns to its chosen directory.
+bind '"\C-o":"y\C-m"'
 
 o-color-print() {
     local i
