@@ -1,25 +1,30 @@
-# Docker Desktop
-export PATH="$PATH:$HOME/.docker/bin"
+# Login shell: environment, then interactive Bash setup.
 
-# Homebrew (macOS)
-if [[ "$OSTYPE" == darwin* ]]; then
+if [[ $OSTYPE == darwin* && -x /opt/homebrew/bin/brew ]]; then
     eval "$(/opt/homebrew/bin/brew shellenv)"
 
-    export PATH="/opt/homebrew/opt/trash-cli/bin:$PATH"
-    export PATH="/opt/homebrew/opt/node@20/bin:$PATH"
+    # Prefer these Homebrew programs over unversioned alternatives.
+    [[ -d /opt/homebrew/opt/trash-cli/bin ]] && PATH="/opt/homebrew/opt/trash-cli/bin:$PATH"
+    [[ -d /opt/homebrew/opt/node@20/bin ]] && PATH="/opt/homebrew/opt/node@20/bin:$PATH"
+
+    # GeoDjango requires the shared libraries, not bin/gdal or bin/geosop.
+    [[ -r /opt/homebrew/opt/gdal/lib/libgdal.dylib ]] && \
+        export GDAL_LIBRARY_PATH=/opt/homebrew/opt/gdal/lib/libgdal.dylib
+    [[ -r /opt/homebrew/opt/geos/lib/libgeos_c.dylib ]] && \
+        export GEOS_LIBRARY_PATH=/opt/homebrew/opt/geos/lib/libgeos_c.dylib
 fi
 
-# Interactive shell configuration
-if [[ -f "$HOME/.bashrc" ]]; then
-    source "$HOME/.bashrc"
+[[ -d $HOME/.docker/bin ]] && PATH="$PATH:$HOME/.docker/bin"
+export PATH
+
+# Keep pyenv Python shims available for non-interactive login shells too.
+export PYENV_ROOT="${PYENV_ROOT:-$HOME/.pyenv}"
+if [[ -d $PYENV_ROOT/shims ]]; then
+    case ":$PATH:" in
+        *":$PYENV_ROOT/shims:"*) ;;
+        *) PATH="$PYENV_ROOT/shims:$PATH" ;;
+    esac
 fi
 
-# Bash completion
-if [[ "$-" == *i* && "$OSTYPE" == darwin* ]]; then
-    # Skip duplicate GDAL/OGR completion scripts, but retain 'gdal'
-    export BASH_COMPLETION_COMPAT_IGNORE='@(gdal?*|ogr*|sozip)'
-
-    if [[ -r /opt/homebrew/etc/profile.d/bash_completion.sh ]]; then
-        source /opt/homebrew/etc/profile.d/bash_completion.sh
-    fi
-fi
+# Explicitly load Bash's interactive configuration in login shells.
+[[ -r $HOME/.bashrc ]] && source "$HOME/.bashrc"
