@@ -2,5 +2,3 @@
 .config/nvim/lazy-lock.json
 .config/ranger/plugins/__pycache__/
 .config/ranger/plugins/__init__.py
-.config/lazygit/config.yml
-.config/lazygit/state.yml
