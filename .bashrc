@@ -51,3 +51,7 @@ if [[ $OSTYPE == darwin* ]]; then
         fi
     }
 fi
+
+if command -v pokemon-colorscripts >/dev/null 2>&1; then
+    pokemon-colorscripts -r
+fi

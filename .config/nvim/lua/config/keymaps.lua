@@ -15,8 +15,29 @@ map("n", "<C-s>", ":w<CR>", { desc = "Save with Ctrl + s" })
 map("n", "Y", "y$", { desc = "Yank to end of line" })
 vim.api.nvim_set_keymap("v", "<c-c>", '"*y :let @+=@*<CR>', { noremap = true, silent = true })
 -- Move selected lines with shift+j or shift+k
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+map("v", "J", ":m '>+1<CR>gv=gv")
+map("v", "K", ":m '<-2<CR>gv=gv")
 
-vim.keymap.set("n", "<C-c>", "ciw")
-vim.keymap.set("n", "<C-q>", ":w|!python %")
+map("n", "<C-c>", "ciw")
+map("n", "<C-q>", ":w|!python %")
+
+
+-- Copy current file's absolute path
+map("n", "<leader>yp", function()
+  vim.fn.setreg("+", vim.fn.expand("%:p"))
+  vim.notify("File path copied")
+end, { desc = "Copy file path" })
+
+-- Terminal in current file's directory
+map("n", "<leader>fT", function()
+  Snacks.terminal(nil, {
+    cwd = vim.fn.expand("%:p:h"),
+  })
+end, { desc = "Terminal (Current File Dir)" })
+
+-- Yazi in current file's directory
+map("n", "<leader>fy", function()
+  Snacks.terminal("yazi", {
+    cwd = vim.fn.expand("%:p:h"),
+  })
+end, { desc = "Yazi (Current File Dir)" })

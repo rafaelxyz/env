@@ -15,6 +15,7 @@ if [[ $OSTYPE == darwin* && -x /opt/homebrew/bin/brew ]]; then
 fi
 
 [[ -d $HOME/.docker/bin ]] && PATH="$PATH:$HOME/.docker/bin"
+[[ -d $HOME/.local/bin ]] && PATH="$PATH:$HOME/.local/bin"
 export PATH
 
 # Keep pyenv Python shims available for non-interactive login shells too.
