@@ -1,0 +1,10 @@
+\.git
+pokemon-colorscripts
+scripts
+\.gitignore
+\.gitmodules
+\.ideavimrc
+\.Xmodmap
+\.Xresources
+README.md
+tmux-appearance.md

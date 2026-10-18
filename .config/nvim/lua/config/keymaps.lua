@@ -34,10 +34,3 @@ map("n", "<leader>fT", function()
     cwd = vim.fn.expand("%:p:h"),
   })
 end, { desc = "Terminal (Current File Dir)" })
-
--- Yazi in current file's directory
-map("n", "<leader>fy", function()
-  Snacks.terminal("yazi", {
-    cwd = vim.fn.expand("%:p:h"),
-  })
-end, { desc = "Yazi (Current File Dir)" })
