@@ -34,3 +34,11 @@ map("n", "<leader>fT", function()
     cwd = vim.fn.expand("%:p:h"),
   })
 end, { desc = "Terminal (Current File Dir)" })
+
+map("n", "<leader>ld", function()
+  Snacks.dashboard()
+end, { desc = "Open Dashboard" })
+
+map("n", "<leader>lo", function()
+  LazyVim.news.changelog()
+end, { desc = "LazyVim Changelog" })
