@@ -2,8 +2,25 @@
   "title": "Tab Numpad Layer",
   "rules": [
     {
-      "description": "Hold Tab for numpad layer; tap Tab for Tab",
+      "description": "Hold Tab or toggle Ctrl+Option+N for numpad",
       "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "n",
+            "modifiers": {
+              "mandatory": ["left_control", "left_option"]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "tab_numpad_latched",
+                "expression": "tab_numpad_latched != 0 ? 0 : 1"
+              }
+            }
+          ]
+        },
         {
           "type": "basic",
           "from": {
@@ -13,8 +30,8 @@
             {
               "set_variable": {
                 "name": "numpad_layer",
-                "value": true,
-                "key_up_value": false
+                "value": 1,
+                "key_up_value": 0
               }
             }
           ],
@@ -31,9 +48,8 @@
           "to": [{ "key_code": "7" }],
           "conditions": [
             {
-              "type": "variable_if",
-              "name": "numpad_layer",
-              "value": true
+              "type": "expression_if",
+              "expression": "numpad_layer + tab_numpad_latched > 0"
             }
           ]
         },
@@ -43,9 +59,8 @@
           "to": [{ "key_code": "8" }],
           "conditions": [
             {
-              "type": "variable_if",
-              "name": "numpad_layer",
-              "value": true
+              "type": "expression_if",
+              "expression": "numpad_layer + tab_numpad_latched > 0"
             }
           ]
         },
@@ -55,9 +70,8 @@
           "to": [{ "key_code": "9" }],
           "conditions": [
             {
-              "type": "variable_if",
-              "name": "numpad_layer",
-              "value": true
+              "type": "expression_if",
+              "expression": "numpad_layer + tab_numpad_latched > 0"
             }
           ]
         },
@@ -68,9 +82,8 @@
           "to": [{ "key_code": "4" }],
           "conditions": [
             {
-              "type": "variable_if",
-              "name": "numpad_layer",
-              "value": true
+              "type": "expression_if",
+              "expression": "numpad_layer + tab_numpad_latched > 0"
             }
           ]
         },
@@ -80,9 +93,8 @@
           "to": [{ "key_code": "5" }],
           "conditions": [
             {
-              "type": "variable_if",
-              "name": "numpad_layer",
-              "value": true
+              "type": "expression_if",
+              "expression": "numpad_layer + tab_numpad_latched > 0"
             }
           ]
         },
@@ -92,9 +104,8 @@
           "to": [{ "key_code": "6" }],
           "conditions": [
             {
-              "type": "variable_if",
-              "name": "numpad_layer",
-              "value": true
+              "type": "expression_if",
+              "expression": "numpad_layer + tab_numpad_latched > 0"
             }
           ]
         },
@@ -105,9 +116,8 @@
           "to": [{ "key_code": "1" }],
           "conditions": [
             {
-              "type": "variable_if",
-              "name": "numpad_layer",
-              "value": true
+              "type": "expression_if",
+              "expression": "numpad_layer + tab_numpad_latched > 0"
             }
           ]
         },
@@ -117,9 +127,8 @@
           "to": [{ "key_code": "2" }],
           "conditions": [
             {
-              "type": "variable_if",
-              "name": "numpad_layer",
-              "value": true
+              "type": "expression_if",
+              "expression": "numpad_layer + tab_numpad_latched > 0"
             }
           ]
         },
@@ -129,9 +138,8 @@
           "to": [{ "key_code": "3" }],
           "conditions": [
             {
-              "type": "variable_if",
-              "name": "numpad_layer",
-              "value": true
+              "type": "expression_if",
+              "expression": "numpad_layer + tab_numpad_latched > 0"
             }
           ]
         },
@@ -142,9 +150,8 @@
           "to": [{ "key_code": "0" }],
           "conditions": [
             {
-              "type": "variable_if",
-              "name": "numpad_layer",
-              "value": true
+              "type": "expression_if",
+              "expression": "numpad_layer + tab_numpad_latched > 0"
             }
           ]
         },
@@ -160,9 +167,8 @@
           ],
           "conditions": [
             {
-              "type": "variable_if",
-              "name": "numpad_layer",
-              "value": true
+              "type": "expression_if",
+              "expression": "numpad_layer + tab_numpad_latched > 0"
             }
           ]
         },
@@ -177,9 +183,8 @@
           ],
           "conditions": [
             {
-              "type": "variable_if",
-              "name": "numpad_layer",
-              "value": true
+              "type": "expression_if",
+              "expression": "numpad_layer + tab_numpad_latched > 0"
             }
           ]
         }
