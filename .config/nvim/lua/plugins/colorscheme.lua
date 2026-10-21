@@ -9,6 +9,9 @@ local function current_theme()
 end
 
 local function refresh_theme()
+  if vim.g.vscode then
+    return
+  end
   local theme = current_theme()
   if vim.g.colors_name ~= theme then
     vim.cmd.colorscheme(theme)
