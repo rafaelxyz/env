@@ -1,0 +1,15 @@
+[[mgr.prepend_keymap]]
+on   = [ "g", "r" ]
+run  = "cd ~/repo"
+desc = "Go to projects"
+
+[[mgr.prepend_keymap]]
+on   = [ "g", "e" ]
+run  = "cd ~/env"
+desc = "Go to dotfiles"
+
+[[mgr.prepend_keymap]]
+on   = [ "g", "o" ]
+run  = "cd ~/Documents"
+desc = "Go to Documents"
+

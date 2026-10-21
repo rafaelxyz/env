@@ -1,14 +1,9 @@
-[[mgr.prepend_keymap]]
-on   = [ "g", "r" ]
-run  = "cd ~/repo"
-desc = "Go to projects"
+[[plugin.prepend_fetchers]]
+url   = "*"
+run   = "git"
+group = "git"
 
-[[mgr.prepend_keymap]]
-on   = [ "g", "e" ]
-run  = "cd ~/env"
-desc = "Go to dotfiles"
-
-[[mgr.prepend_keymap]]
-on   = [ "g", "o" ]
-run  = "cd ~/Documents"
-desc = "Go to Documents"
+[[plugin.prepend_fetchers]]
+url   = "*/"
+run   = "git"
+group = "git"
