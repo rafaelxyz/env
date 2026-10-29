@@ -15,5 +15,13 @@
       "key": "alt+cmd+s",
       "command": "workbench.action.toggleUnifiedSidebarFromKeyboard",
       "when": "!isAuxiliaryWindowFocusedContext"
+    },
+    {
+      "key": "ctrl+alt+left",
+      "command": "-cursorWordPartLeft"
+    },
+    {
+      "key": "ctrl+alt+right",
+      "command": "-cursorWordPartRight"
     }
   ]

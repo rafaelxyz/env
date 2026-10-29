@@ -35,7 +35,7 @@
             {
               "software_function": {
                 "open_application": {
-                  "bundle_identifier": "net.kovidgoyal.kitty"
+                  "bundle_identifier": "com.mitchellh.ghostty"
                 }
               }
             }

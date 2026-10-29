@@ -1,6 +1,12 @@
 # ~/.bashrc: interactive Bash (both login and non-login).
 [[ $- == *i* ]] || return 0
 
+# Use Homebrew's updated CA certificates on macOS
+if [[ "$(uname -s)" == "Darwin" ]] &&
+   [[ -f /opt/homebrew/etc/ca-certificates/cert.pem ]]; then
+  export CURL_CA_BUNDLE="/opt/homebrew/etc/ca-certificates/cert.pem"
+fi
+
 export PYENV_ROOT="${PYENV_ROOT:-$HOME/.pyenv}"
 if [[ -d $PYENV_ROOT/bin ]]; then
     case ":$PATH:" in

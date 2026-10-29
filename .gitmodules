@@ -1,9 +1,12 @@
-[submodule ".config/ranger/plugins/ranger_devicons"]
-	path = .config/ranger/plugins/ranger_devicons
-	url = https://github.com/alexanderjeurissen/ranger_devicons
 [submodule ".tmux/plugins/tpm"]
 	path = .tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm
 [submodule "pokemon-colorscripts"]
 	path = pokemon-colorscripts
 	url = https://gitlab.com/phoneybadger/pokemon-colorscripts.git
+[submodule "ghostty-cursor-shaders"]
+  path = ~/.config/ghostty/shaders
+  url = https://github.com/sahaj-b/ghostty-cursor-shaders
+[submodule ".config/ghostty/ghostty-cursor-shaders"]
+	path = .config/ghostty/ghostty-cursor-shaders
+	url = https://github.com/sahaj-b/ghostty-cursor-shaders
