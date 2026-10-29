@@ -20,6 +20,7 @@ return {
               input = {
                 keys = {
                   ["<C-h>"] = "toggle_hidden",
+                  ["<C-i>"] = "toggle_ignored",
                 },
               },
             },
@@ -29,6 +30,7 @@ return {
               input = {
                 keys = {
                   ["<C-h>"] = "toggle_hidden",
+                  ["<C-i>"] = "toggle_ignored",
                 },
               },
             },
