@@ -5,8 +5,8 @@ font-size = 12
 custom-shader = ~/.config/ghostty/ghostty-cursor-shaders/ghostty/cursor_sweep.glsl
 
 # Font underline adjustments
-adjust-underline-position = 4
-adjust-underline-thickness = 100%
+adjust-underline-position = 2
+adjust-underline-thickness = 50%
 
 # Window decorations
 macos-titlebar-style = hidden
