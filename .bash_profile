@@ -4,8 +4,8 @@ if [[ $OSTYPE == darwin* && -x /opt/homebrew/bin/brew ]]; then
     eval "$(/opt/homebrew/bin/brew shellenv)"
 
     # Prefer these Homebrew programs over unversioned alternatives.
+    # Node comes from the current Homebrew formula (26.x). frontend/package.json rejects 20.
     [[ -d /opt/homebrew/opt/trash-cli/bin ]] && PATH="/opt/homebrew/opt/trash-cli/bin:$PATH"
-    [[ -d /opt/homebrew/opt/node@20/bin ]] && PATH="/opt/homebrew/opt/node@20/bin:$PATH"
 
     # GeoDjango requires the shared libraries, not bin/gdal or bin/geosop.
     [[ -r /opt/homebrew/opt/gdal/lib/libgdal.dylib ]] && \

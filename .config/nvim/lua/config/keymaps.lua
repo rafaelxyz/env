@@ -22,12 +22,6 @@ map("n", "<C-c>", "ciw")
 map("n", "<C-q>", ":w|!python %")
 
 
--- Copy current file's absolute path
-map("n", "<leader>yp", function()
-  vim.fn.setreg("+", vim.fn.expand("%:p"))
-  vim.notify("File path copied")
-end, { desc = "Copy file path" })
-
 -- Terminal in current file's directory
 map("n", "<leader>fT", function()
   Snacks.terminal(nil, {

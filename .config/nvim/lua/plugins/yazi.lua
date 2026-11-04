@@ -6,7 +6,7 @@ return {
   },
   keys = {
     -- Preserve the former Ranger key and its working-directory behavior.
-    { "<leader>r", "<cmd>Yazi cwd<cr>", desc = "Yazi (working directory)" },
+    { "<leader>y", "<cmd>Yazi toggle<cr>", desc = "Yazi (toggle)" },
   },
   opts = {
     open_for_directories = false,

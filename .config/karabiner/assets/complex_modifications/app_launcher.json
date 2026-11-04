@@ -125,12 +125,13 @@
             {
               "software_function": {
                 "open_application": {
-                  "bundle_identifier": "org.jkiss.dbeaver.core.product"
+                  "bundle_identifier": "io.beekeeperstudio.desktop"
                 }
               }
             }
           ]
         }
+// osascript -e 'id of app "Beekeeper Studio"'
       ]
     }
   ]
