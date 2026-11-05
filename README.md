@@ -1,6 +1,6 @@
 # Personal dotfiles
 
-macOS (Homebrew/Kitty) and Linux shell/editor configurations.
+MacOS (Homebrew/Kitty) and Linux shell/editor configurations.
 
 ## Bootstrap
 
@@ -38,7 +38,7 @@ Run `kitten themes` once to create `~/.config/kitty/current-theme.conf`, or leav
 ### Git credentials
 
 The shared `.gitconfig` uses `osxkeychain`, which stores HTTPS credentials in macOS Keychain instead
-of the plaintext Git credential store. The optional `~/.gitconfig.local` is included last for
+of the plain text Git credential store. The optional `~/.gitconfig.local` is included last for
 machine-specific overrides. On **Linux**, put a credential helper available on that machine in
 `~/.gitconfig.local`, explicitly resetting the macOS helper first. For example:
 
@@ -57,7 +57,7 @@ git config --show-origin --get-all credential.helper
 The Git SSH signing key and allowed-signers paths currently reference `/Users/rafal`; adjust these on
 another computer before enabling signing there.
 
-run `pyenv rehash` after installing Python tools if shims are missing.
+Run `pyenv rehash` after installing Python tools if shims are missing.
 
 ## Linux
 

@@ -5,6 +5,9 @@ return {
     version = false,
     build = "make",
     opts = {
+      windows = {
+        wrap = true,
+      },
       provider = "cursor",
       mode = "agentic",
 
