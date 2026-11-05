@@ -84,7 +84,7 @@ is deliberately not run on every shell startup; use the appropriate graphical-se
     Z X C V B N M
     : = @ ! \ % *
 
-### Tab numpad
+### Tab numpad (ctrl+option+n)
 
     Y U I O P   → / 7 8 9
     H J K L ;   → * 4 5 6
